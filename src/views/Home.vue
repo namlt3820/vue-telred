@@ -1,5 +1,5 @@
 <template>
-    <v-container fill-height fluid grid-list-xl py-0>
+    <v-container fluid grid-list-xl py-0 background-page>
         <v-layout wrap>
             <v-flex xs12 pa-0>
                 <div class="header">
