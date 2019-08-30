@@ -1,0 +1,19 @@
+body,
+.v-application {
+    font-family: 'Montserrat', sans-serif;
+}
+.fix-width {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+.v-application a {
+    text-decoration: none;
+}
+.background-page {
+    background: url(../bg-1.svg) no-repeat;
+    background-position-x: 110%;
+    background-position-y: -132%;
+    background-size: 190% auto;
+    height: 5000px;
+}
