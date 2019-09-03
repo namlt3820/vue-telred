@@ -78,7 +78,7 @@ export default {
         },
         onBeforeSlideChange(index) {
             this.slideIndex = index;
-            console.log(index);
+            // console.log(index);
         }
     }
 };
