@@ -1,8 +1,8 @@
 <template>
     <v-container fluid>
         <v-layout wrap pa-0 class="carousel-container">
-            <v-flex xs2 :class="`d-flex justify-end align-center`">
-                <div @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
+            <v-flex sm2 :class="`d-sm-flex justify-end align-center d-none`">
+                <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
                     <img v-if="!leftActive" :src="require('../../../assets/slide-left.png')" alt="slide-left" />
                     <img
                         v-if="leftActive"
@@ -11,13 +11,17 @@
                     />
                 </div>
             </v-flex>
-            <v-flex xs8>
+            <v-flex xs12 sm8>
                 <carousel-3d
-                    width="500"
-                    height="500"
+                    width="600"
+                    height="600"
                     ref="carousel"
                     startIndex="1"
                     @before-slide-change="onBeforeSlideChange"
+                    :autoplay="$vuetify.breakpoint.xsOnly"
+                    :autoplayTimeout="$vuetify.breakpoint.xsOnly ? 3000 : 2000"
+                    :perspective="0"
+                    :space="$vuetify.breakpoint.xsOnly ? 500 : 'auto'"
                 >
                     <slide :index="0">
                         <img :src="require('../../../assets/silde-1.png')" alt="slide1" />
@@ -30,8 +34,8 @@
                     </slide>
                 </carousel-3d>
             </v-flex>
-            <v-flex xs2 :class="`d-flex justify-start align-center`">
-                <div @click="leftSlide" @mouseover="rightActive = true" @mouseout="rightActive = false">
+            <v-flex xs0 sm2 :class="`d-sm-flex justify-start align-center d-none`">
+                <div class="arrow" @click="rightSlide" @mouseover="rightActive = true" @mouseout="rightActive = false">
                     <img v-if="!rightActive" :src="require('../../../assets/slide-right.png')" alt="slide-right" />
                     <img
                         v-if="rightActive"
@@ -88,5 +92,12 @@ export default {
 .carousel-3d-slide {
     background-color: transparent;
     border: none;
+}
+
+.arrow {
+    cursor: pointer;
+    img {
+        max-height: 4rem;
+    }
 }
 </style>
