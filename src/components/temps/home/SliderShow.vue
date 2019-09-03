@@ -3,10 +3,10 @@
         <v-layout wrap pa-0 class="carousel-container">
             <v-flex sm2 :class="`d-sm-flex justify-end align-center d-none`">
                 <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
-                    <img v-if="!leftActive" :src="require('../../../assets/slide-left.png')" alt="slide-left" />
+                    <img v-if="!leftActive" :src="require('@/assets/images/slide-left.png')" alt="slide-left" />
                     <img
                         v-if="leftActive"
-                        :src="require('../../../assets/slide-left-active.png')"
+                        :src="require('@/assets/images/slide-left-active.png')"
                         alt="slide-left-active"
                     />
                 </div>
@@ -24,22 +24,22 @@
                     :space="$vuetify.breakpoint.xsOnly ? 500 : 'auto'"
                 >
                     <slide :index="0">
-                        <img :src="require('../../../assets/silde-1.png')" alt="slide1" />
+                        <img :src="require('@/assets/images/silde-1.png')" alt="slide1" />
                     </slide>
                     <slide :index="1">
-                        <img :src="require('../../../assets/silde-2.png')" alt="slide2" />
+                        <img :src="require('@/assets/images/silde-2.png')" alt="slide2" />
                     </slide>
                     <slide :index="2">
-                        <img :src="require('../../../assets/silde-3.png')" alt="slide3" />
+                        <img :src="require('@/assets/images/silde-3.png')" alt="slide3" />
                     </slide>
                 </carousel-3d>
             </v-flex>
             <v-flex xs0 sm2 :class="`d-sm-flex justify-start align-center d-none`">
                 <div class="arrow" @click="rightSlide" @mouseover="rightActive = true" @mouseout="rightActive = false">
-                    <img v-if="!rightActive" :src="require('../../../assets/slide-right.png')" alt="slide-right" />
+                    <img v-if="!rightActive" :src="require('@/assets/images/slide-right.png')" alt="slide-right" />
                     <img
                         v-if="rightActive"
-                        :src="require('../../../assets/slide-right-active.png')"
+                        :src="require('@/assets/images/slide-right-active.png')"
                         alt="slide-right-active"
                     />
                 </div>
@@ -86,7 +86,7 @@ export default {
 
 <style lang="scss" scoped>
 .carousel-container {
-    background-image: url('../../../assets/slide-bg.png');
+    background-image: url('../../../assets/images/slide-bg.png');
 }
 
 .carousel-3d-slide {

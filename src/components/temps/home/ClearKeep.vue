@@ -1,23 +1,24 @@
 <template>
-    <v-container fluid>
-        <v-layout wrap pa-0 class="clear-keep">
-            <v-flex xs12 sm6></v-flex>
-            <v-flex xs12 sm6 :class="`d-sm-flex justify-start align-top`">
-                <div>
-                    <v-layout>
-                        <img :src="require('../../../assets/clear-keep-icon.png')" alt="clear-keep-icon" />
-                        <div class="brand">
-                            <span>Clear Keep</span>
-                            <br />
-                            <span>www.clearkeep.io</span>
+    <v-container fluid class="content-grid">
+        <v-layout wrap pa-0>
+            <v-flex xs6></v-flex>
+            <v-flex xs6 pa-0>
+                <div class="fix-width">
+                    <div class="logo">
+                        <img src="@/assets/images/clear-keep-icon.png" alt />
+                        <div class="text-1">
+                            <div class="t1">Clear Keep</div>
+                            <div class="t2">www.clearkeep.io</div>
                         </div>
-                    </v-layout>
-                    <p class="introduction">
+                    </div>
+                    <div class="text-2">
                         The
-                        <span style="color: red">only secure unified</span> communication and enterprise storage tool in
-                        the world
-                    </p>
-                    <v-btn rounded large color="#f9566d">Read more</v-btn>
+                        <span style="color: #f9566d">only secure unified</span>
+                    </div>
+                    <div class="text-3" style="color: #01348d">
+                        communication and enterprise storage tool in the world
+                    </div>
+                    <v-btn depressed rounded class="btn-read-more" color="#F9556D">Read more</v-btn>
                 </div>
             </v-flex>
         </v-layout>
@@ -28,51 +29,49 @@ export default {
     name: 'LyncSkype'
 };
 </script>
-<style lang="scss" scoped>
-.clear-keep {
-    margin: 0 3rem;
-    height: 800px;
-    background-image: url('../../../assets/clear-keep.png');
-    background-size: contain;
+<style>
+.section-3 {
+    background: url(../../../assets/images/clear-keep.png) no-repeat bottom right;
+    background-size: cover;
+    height: 820px;
+    display: flex;
+    align-items: top;
+}
+.section-3 .content-grid .btn-read-more.theme--light.v-btn {
+    color: #fff;
+    text-transform: none;
+    font-size: 16px;
+    width: 176px;
+    height: 60px;
+    margin-top: 20px;
+}
+.section-3 .content-grid .logo {
+    display: flex;
+    color: #f9556d;
+    margin-bottom: 20px;
+}
 
-    .brand {
-        margin-left: 1rem;
-
-        span {
-            color: red;
-        }
-
-        span:first-child {
-            font-weight: bold;
-        }
-    }
-
-    .layout {
-        margin: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .introduction {
-        color: #03378f;
-        font-weight: bold;
-        font-size: 2rem;
-    }
-
-    > div > div:first-child {
-        padding-right: 10rem;
-    }
-
-    button {
-        color: white;
-        text-transform: none;
-        font-weight: 700;
-    }
-
-    .background-text {
-        font-weight: bold;
-        font-size: 4rem;
-        color: #f7e2e6;
-        margin-top: 3rem;
-    }
+.section-3 .content-grid .logo .t1 {
+    font-weight: bold;
+    line-height: 20px;
+    padding-top: 3px;
+}
+.section-3 .content-grid .logo .t2 {
+    font-size: 14px;
+    line-height: 14px;
+}
+.section-3 .content-grid .text-2 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 42px;
+}
+.section-3 .content-grid .text-3 {
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 42px;
+    margin-bottom: 40px;
+}
+.content-grid .fix-width {
+    position: relative;
 }
 </style>

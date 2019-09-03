@@ -11,7 +11,7 @@ body,
     text-decoration: none;
 }
 .background-page {
-    background: url(../bg-1.svg) no-repeat;
+    background: url(../images/bg-1.svg) no-repeat;
     background-position-x: 110%;
     background-position-y: -132%;
     background-size: 190% auto;
