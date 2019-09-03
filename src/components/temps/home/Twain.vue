@@ -1,25 +1,20 @@
 <template>
-    <v-container fluid>
-        <v-layout wrap pa-0 class="twain">
-            <v-flex xs12 sm7 :class="`d-sm-flex justify-start align-top`">
-                <div>
-                    <v-layout>
-                        <img :src="require('../../../assets/twain-icon.png')" alt="twain-icon" />
-                        <div class="brand">
-                            <span>Twain</span>
-                            <br />
-                            <span>www.twain.ai</span>
+    <v-container fluid class="content-grid">
+        <v-layout wrap pa-0>
+            <v-flex xs12 pa-0>
+                <div class="fix-width">
+                    <div class="logo">
+                        <img src="@/assets/images/logo-twain.png" alt />
+                        <div class="text-1">
+                            <div class="t1">TWAIN</div>
+                            <div class="t2">www.twain.ai</div>
                         </div>
-                    </v-layout>
-                    <p class="introduction">
-                        Build production-quality AI
-                        <br />
-                        <span style="color: red">Quickly and Easily!</span>
-                    </p>
-                    <v-btn rounded large color="#f9566d">Read more</v-btn>
+                    </div>
+                    <div class="text-2">Build production-quality AI</div>
+                    <div class="text-3">Quickly and Easily!</div>
+                    <v-btn depressed rounded class="btn-read-more" color="#F9556D">Read more</v-btn>
                 </div>
             </v-flex>
-            <v-flex xs12 sm5></v-flex>
         </v-layout>
     </v-container>
 </template>
@@ -28,49 +23,47 @@ export default {
     name: 'LyncSkype'
 };
 </script>
-<style lang="scss" scoped>
-.twain {
-    margin: 0 3rem;
-    height: 600px;
-    background-image: url('../../../assets/twain.png');
-    background-size: contain;
-
-    .brand {
-        span {
-            color: red;
-        }
-
-        span:first-child {
-            font-weight: bold;
-        }
-    }
-
-    .layout {
-        margin: 0 !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .introduction {
-        color: #03378f;
-        font-weight: bold;
-        font-size: 2rem;
-    }
-
-    > div > div:first-child {
-        padding-left: 10rem;
-    }
-
-    button {
-        color: white;
-        text-transform: none;
-        font-weight: 700;
-    }
-
-    .background-text {
-        font-weight: bold;
-        font-size: 4rem;
-        color: #f7e2e6;
-        margin-top: 3rem;
-    }
+<style>
+.section-4 {
+    background: url(../../../assets/images/bg-twain.png) no-repeat bottom right;
+    background-size: auto 100%;
+    height: 700px;
+}
+.section-4 .content-grid .btn-read-more.theme--light.v-btn {
+    color: #fff;
+    text-transform: none;
+    font-size: 16px;
+    width: 176px;
+    height: 60px;
+    margin-top: 20px;
+}
+.section-4 .content-grid .logo {
+    display: flex;
+    color: #f9556d;
+    margin-bottom: 20px;
+}
+.section-4 .content-grid .logo .t1 {
+    font-weight: bold;
+    line-height: 20px;
+    padding-top: 3px;
+}
+.section-4 .content-grid .logo .t2 {
+    font-size: 14px;
+    line-height: 14px;
+}
+.section-4 .content-grid .text-2 {
+    color: #01348d;
+    font-size: 40px;
+    font-weight: bold;
+}
+.section-4 .content-grid .text-3 {
+    color: #f9556d;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 38px;
+    margin-bottom: 40px;
+}
+.content-grid .fix-width {
+    position: relative;
 }
 </style>

@@ -3,7 +3,7 @@
         <v-layout wrap pa-0>
             <v-flex xs12 class="content-header">
                 <div id="logo">
-                    <img src="@/assets/logo.png" alt />
+                    <img src="@/assets/images/logo.png" alt />
                 </div>
                 <div class="col-right">
                     <v-select
@@ -48,7 +48,7 @@ export default {
     margin-top: 5px;
 }
 .col-right .select-web.v-select.v-text-field.v-text-field--enclosed .v-input__append-inner .v-icon {
-    background: url('../../assets/arrow-select.svg') no-repeat center center;
+    background: url('../../assets/images/arrow-select.svg') no-repeat center center;
     background-size: 17px auto;
 }
 .col-right .select-web.v-text-field--outlined fieldset {

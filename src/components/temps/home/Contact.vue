@@ -6,9 +6,16 @@
                     <div class="text-1">Get in Touch with Us</div>
                     <div class="text-2">We'd love to hear from you. Drop us a note and we'l get back to you ASAP.</div>
                     <v-form class="form-contact">
-                        <v-text-field label="Name" solo hide-details flat></v-text-field>
-                        <v-text-field label="E-mail" solo hide-details flat></v-text-field>
-                        <v-textarea solo name="input-7-4" label="Solo textarea" flat hide-details></v-textarea>
+                        <v-text-field label="Name" solo hide-details flat color="#666"></v-text-field>
+                        <v-text-field label="E-mail" solo hide-details flat color="#666"></v-text-field>
+                        <v-textarea
+                            solo
+                            name="input-7-4"
+                            label="Your Message"
+                            flat
+                            hide-details
+                            color="#666"
+                        ></v-textarea>
                         <v-btn depressed rounded class="btn-action-contact">Send</v-btn>
                     </v-form>
                 </div>
@@ -23,7 +30,7 @@ export default {
 </script>
 <style>
 .section-contact {
-    background: url(../../../assets/bg-contact.png) no-repeat left top;
+    background: url(../../../assets/images/bg-contact.png) no-repeat left top;
     padding: 40px 0;
 }
 .section-contact .text-1 {
