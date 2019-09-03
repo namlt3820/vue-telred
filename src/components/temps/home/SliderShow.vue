@@ -2,16 +2,8 @@
     <v-container fluid>
         <v-layout wrap pa-0 class="carousel-container">
             <v-flex xs2 :class="`d-flex justify-end align-center`">
-                <div
-                    @click="leftSlide"
-                    @mouseover="leftActive = true"
-                    @mouseout="leftActive = false"
-                >
-                    <img
-                        v-if="!leftActive"
-                        :src="require('../../../assets/slide-left.png')"
-                        alt="slide-left"
-                    />
+                <div @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
+                    <img v-if="!leftActive" :src="require('../../../assets/slide-left.png')" alt="slide-left" />
                     <img
                         v-if="leftActive"
                         :src="require('../../../assets/slide-left-active.png')"
@@ -39,16 +31,8 @@
                 </carousel-3d>
             </v-flex>
             <v-flex xs2 :class="`d-flex justify-start align-center`">
-                <div
-                    @click="leftSlide"
-                    @mouseover="rightActive = true"
-                    @mouseout="rightActive = false"
-                >
-                    <img
-                        v-if="!rightActive"
-                        :src="require('../../../assets/slide-right.png')"
-                        alt="slide-right"
-                    />
+                <div @click="leftSlide" @mouseover="rightActive = true" @mouseout="rightActive = false">
+                    <img v-if="!rightActive" :src="require('../../../assets/slide-right.png')" alt="slide-right" />
                     <img
                         v-if="rightActive"
                         :src="require('../../../assets/slide-right-active.png')"
@@ -90,7 +74,7 @@ export default {
         },
         onBeforeSlideChange(index) {
             this.slideIndex = index;
-            console.log(index);
+            // console.log(index);
         }
     }
 };
