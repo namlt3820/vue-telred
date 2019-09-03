@@ -6,7 +6,7 @@
                     <div class="fix-width">
                         <v-layout class="sec-1">
                             <v-flex md3 class="item-footer">
-                                <img src="@/assets/logo-white.png" alt />
+                                <img src="@/assets/images/logo-white.png" alt />
                                 <div class="text-2">
                                     Tel.red creates AI and Skype, VOIP and communication products to make busineses
                                     thrive.
@@ -48,7 +48,7 @@
                                         color="#F8546C"
                                     ></v-text-field>
                                     <v-btn class="icon-send-mail" fab dark color="#F8546C" height="48px" width="48px">
-                                        <img class="img" src="@/assets/arrow-send-mail.svg" alt />
+                                        <img class="img" src="@/assets/images/arrow-send-mail.svg" alt />
                                     </v-btn>
                                 </div>
                                 <div class="text-1">Get the latest news & promotion in your in box !</div>
@@ -125,15 +125,15 @@ export default {
     padding-left: 24px;
 }
 .item-footer .list-contact .address {
-    background: url(../../assets/ic-location.svg) no-repeat left top 3px;
+    background: url(../../assets/images/ic-location.svg) no-repeat left top 3px;
     background-size: 14px auto;
 }
 .item-footer .list-contact .email {
-    background: url(../../assets/ic-mail.svg) no-repeat left top 3px;
+    background: url(../../assets/images/ic-mail.svg) no-repeat left top 3px;
     background-size: 14px auto;
 }
 .item-footer .list-contact .phone {
-    background: url(../../assets/ic-phone.svg) no-repeat left top 3px;
+    background: url(../../assets/images/ic-phone.svg) no-repeat left top 3px;
     background-size: 14px auto;
 }
 </style>
