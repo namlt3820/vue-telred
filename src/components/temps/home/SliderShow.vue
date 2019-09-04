@@ -1,5 +1,10 @@
 <template>
     <v-container fluid>
+        <p class="title-1">WE MAKE THE TOOLS THAT GIVE YOU SUPER POWERS</p>
+        <p class="title-2">
+            Talk and share files without bad guys eavesdropping. Launch machine learning products without being a genius
+            data scientist and devOps expert.
+        </p>
         <v-layout wrap pa-0 class="carousel-container">
             <v-flex sm2 :class="`d-sm-flex justify-end align-center d-none`">
                 <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
@@ -98,6 +103,30 @@ export default {
     cursor: pointer;
     img {
         max-height: 4rem;
+    }
+}
+
+.title-1 {
+    text-align: center;
+    font-weight: bold;
+    color: #01358d;
+    font-size: 1rem;
+}
+
+.title-2 {
+    text-align: center;
+    color: #f9556d;
+    width: 365px;
+    margin: auto;
+}
+
+@media only screen and (min-width: 600px) {
+    .title-1 {
+        font-size: 2rem;
+    }
+
+    .title-2 {
+        width: 700px;
     }
 }
 </style>

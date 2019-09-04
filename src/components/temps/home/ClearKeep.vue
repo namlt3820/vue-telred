@@ -1,8 +1,10 @@
 <template>
     <v-container fluid class="content-grid">
         <v-layout wrap pa-0>
-            <v-flex xs6></v-flex>
-            <v-flex xs6 pa-0>
+            <v-flex xs12 sm6 pa-0>
+                <v-img v-if="$vuetify.breakpoint.xsOnly" src="@/assets/images/clear-keep-mobile.png"></v-img>
+            </v-flex>
+            <v-flex xs12 sm6 pa-md-0 pa-4>
                 <div class="fix-width">
                     <div class="logo">
                         <img src="@/assets/images/clear-keep-icon.png" alt />
@@ -31,11 +33,16 @@ export default {
 </script>
 <style>
 .section-3 {
-    background: url(../../../assets/images/clear-keep.png) no-repeat bottom right;
-    background-size: cover;
     height: 820px;
     display: flex;
     align-items: top;
+}
+
+@media only screen and (min-width: 600px) {
+    .section-3 {
+        background: url(../../../assets/images/clear-keep.png) no-repeat bottom right;
+        background-size: cover;
+    }
 }
 
 @media only screen and (min-width: 1920px) {
@@ -48,10 +55,18 @@ export default {
     color: #fff;
     text-transform: none;
     font-size: 16px;
-    width: 176px;
-    height: 60px;
+    width: 160px;
+    height: 50px;
     margin-top: 20px;
 }
+
+@media only screen and (min-width: 600px) {
+    .section-3 .content-grid .btn-read-more.theme--light.v-btn {
+        width: 176px;
+        height: 60px;
+    }
+}
+
 .section-3 .content-grid .logo {
     display: flex;
     color: #f9556d;
@@ -68,16 +83,28 @@ export default {
     line-height: 14px;
 }
 .section-3 .content-grid .text-2 {
-    font-size: 40px;
+    color: #01348d;
+    font-size: 24px;
     font-weight: bold;
-    line-height: 42px;
 }
 .section-3 .content-grid .text-3 {
-    font-size: 40px;
+    color: #f9556d;
+    font-size: 24px;
     font-weight: bold;
-    line-height: 42px;
-    margin-bottom: 40px;
+    line-height: 38px;
+    margin-bottom: 0;
 }
+
+@media only screen and (min-width: 600px) {
+    .section-3 .content-grid .text-2,
+    .section-3 .content-grid .text-3 {
+        font-size: 40px;
+    }
+    .section-3 .content-grid .text-3 {
+        margin-bottom: 40px;
+    }
+}
+
 .content-grid .fix-width {
     position: relative;
 }
