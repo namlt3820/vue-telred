@@ -1,7 +1,7 @@
 <template>
     <v-container fluid grid-list-xl py-0 background-page>
-        <v-layout wrap>
-            <v-flex xs12 pa-0>
+        <v-row wrap>
+            <v-col cols="12" class="pa-0">
                 <div class="header">
                     <core-header />
                 </div>
@@ -25,8 +25,8 @@
                 <div class="footer">
                     <core-footer />
                 </div>
-            </v-flex>
-        </v-layout>
+            </v-col>
+        </v-row>
     </v-container>
 </template>
 
