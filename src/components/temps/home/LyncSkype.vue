@@ -17,7 +17,15 @@
                         There was no Skype client
                         <br />for Linux. So we <span style="color: #f9566d">built it</span>.
                     </div>
-                    <v-btn depressed rounded class="btn-read-more" color="#F9556D" href="#">Read more</v-btn>
+                    <v-btn
+                        depressed
+                        rounded
+                        class="btn-read-more"
+                        color="#F9556D"
+                        target="blank"
+                        href="http://www.tel.red"
+                        >Read more</v-btn
+                    >
                     <div class="text-3" v-if="!$vuetify.breakpoint.xsOnly">
                         Lync/Skype
                         <br />for business

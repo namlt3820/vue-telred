@@ -20,7 +20,15 @@
                             <br />communication and enterprise storage tool in the world
                         </div>
                         <div class="text-3" style="color: #01348d"></div>
-                        <v-btn depressed rounded class="btn-read-more" color="#F9556D" href="#">Read more</v-btn>
+                        <v-btn
+                            depressed
+                            rounded
+                            class="btn-read-more"
+                            color="#F9556D"
+                            target="blank"
+                            href="http://www.clearkeep.io"
+                            >Read more</v-btn
+                        >
                     </div>
                 </v-flex>
             </v-layout>

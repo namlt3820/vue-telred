@@ -12,7 +12,15 @@
                     </div>
                     <div class="text-2">Build production-quality AI</div>
                     <div class="text-3">Quickly and Easily!</div>
-                    <v-btn depressed rounded class="btn-read-more" color="#F9556D">Read more</v-btn>
+                    <v-btn
+                        depressed
+                        rounded
+                        class="btn-read-more"
+                        color="#F9556D"
+                        target="blank"
+                        href="http://www.twain.ai"
+                        >Read more</v-btn
+                    >
                 </div>
             </v-flex>
         </v-layout>
