@@ -12,14 +12,14 @@ body,
 }
 .background-page {
     background: url(../images/bg-1.svg) no-repeat;
-    background-position-x: 110%;
-    background-position-y: -319%;
-    background-size: 184% auto;
+    background-position-x: 100%;
+    background-position-y: -81%;
+    background-size: 195% auto;
 }
 
 @media only screen and (min-width: 1920px) {
     .background-page {
-        background-position-y: -170%;
+        background-position-y: -161%;
         background-size: 170% auto;
     }
 }

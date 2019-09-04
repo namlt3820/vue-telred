@@ -1,29 +1,30 @@
 <template>
     <v-container fluid class="content-grid">
-        <v-layout wrap pa-0>
-            <v-flex xs12 sm6 pa-0>
-                <v-img v-if="$vuetify.breakpoint.xsOnly" src="@/assets/images/clear-keep-mobile.png"></v-img>
-            </v-flex>
-            <v-flex xs12 sm6 pa-md-0 pa-4>
-                <div class="fix-width">
-                    <div class="logo">
-                        <img src="@/assets/images/clear-keep-icon.png" alt />
-                        <div class="text-1">
-                            <div class="t1">Clear Keep</div>
-                            <div class="t2">www.clearkeep.io</div>
+        <div class="fix-width">
+            <v-layout wrap pa-0>
+                <v-flex xs12 sm4 pa-0>
+                    <v-img v-if="$vuetify.breakpoint.xsOnly" src="@/assets/images/clear-keep-mobile.png"></v-img>
+                </v-flex>
+                <v-flex xs12 sm8 pa-4>
+                    <div class="text-0">
+                        <div class="logo">
+                            <img src="@/assets/images/clear-keep-icon.png" alt />
+                            <div class="text-1">
+                                <div class="t1">Clear Keep</div>
+                                <div class="t2">www.clearkeep.io</div>
+                            </div>
                         </div>
+                        <div class="text-2">
+                            The
+                            <span style="color: #f9566d">only secure unified</span>
+                            <br />communication and enterprise storage tool in the world
+                        </div>
+                        <div class="text-3" style="color: #01348d"></div>
+                        <v-btn depressed rounded class="btn-read-more" color="#F9556D" href="#">Read more</v-btn>
                     </div>
-                    <div class="text-2">
-                        The
-                        <span style="color: #f9566d">only secure unified</span>
-                    </div>
-                    <div class="text-3" style="color: #01348d">
-                        communication and enterprise storage tool in the world
-                    </div>
-                    <v-btn depressed rounded class="btn-read-more" color="#F9556D">Read more</v-btn>
-                </div>
-            </v-flex>
-        </v-layout>
+                </v-flex>
+            </v-layout>
+        </div>
     </v-container>
 </template>
 <script>
@@ -40,14 +41,17 @@ export default {
 
 @media only screen and (min-width: 600px) {
     .section-3 {
+        height: 950px;
         background: url(../../../assets/images/clear-keep.png) no-repeat bottom right;
-        background-size: cover;
+        background-size: 1640px auto;
+        background-position-x: -200px;
     }
 }
 
 @media only screen and (min-width: 1920px) {
     .section-3 {
         height: 1100px;
+        background-position-x: 0px;
     }
 }
 
@@ -86,26 +90,32 @@ export default {
     color: #01348d;
     font-size: 24px;
     font-weight: bold;
-}
-.section-3 .content-grid .text-3 {
-    color: #f9556d;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 38px;
-    margin-bottom: 0;
+    line-height: 40px;
 }
 
 @media only screen and (min-width: 600px) {
-    .section-3 .content-grid .text-2,
-    .section-3 .content-grid .text-3 {
+    .section-3 .content-grid .text-2 {
         font-size: 40px;
-    }
-    .section-3 .content-grid .text-3 {
         margin-bottom: 40px;
+        line-height: 50px;
     }
 }
 
 .content-grid .fix-width {
     position: relative;
+}
+
+@media only screen and (min-width: 600px) {
+    .text-0 {
+        padding-top: 100px;
+        padding-left: 50px;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .text-0 {
+        padding-top: 100px;
+        padding-left: 0;
+    }
 }
 </style>

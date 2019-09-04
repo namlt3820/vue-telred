@@ -4,7 +4,7 @@
             <v-flex xs12 v-if="$vuetify.breakpoint.xsOnly" px-3 mb-6>
                 <v-img src="@/assets/images/lync-skype-mobile.jpg" contain></v-img>
             </v-flex>
-            <v-flex xs12 pa-md-0 pa-4>
+            <v-flex xs12 pa-md-0 pt-md-10 pa-4>
                 <div class="fix-width">
                     <div class="logo">
                         <img src="@/assets/images/lync-skype-icon.png" alt />
@@ -13,9 +13,15 @@
                             <div class="t2">www.tel.red</div>
                         </div>
                     </div>
-                    <div class="text-2">There was no Skype client</div>
-                    <div class="text-3"><span style="color: #01348d">for Linux. So we</span> built it.</div>
-                    <v-btn depressed rounded class="btn-read-more" color="#F9556D">Read more</v-btn>
+                    <div class="text-2">
+                        There was no Skype client
+                        <br />for Linux. So we <span style="color: #f9566d">built it</span>.
+                    </div>
+                    <v-btn depressed rounded class="btn-read-more" color="#F9556D" href="#">Read more</v-btn>
+                    <div class="text-3" v-if="!$vuetify.breakpoint.xsOnly">
+                        Lync/Skype
+                        <br />for business
+                    </div>
                 </div>
             </v-flex>
         </v-layout>
@@ -34,8 +40,8 @@ export default {
 @media only screen and (min-width: 600px) {
     .section-2 {
         background: url(../../../assets/images/lync-skype.png) no-repeat bottom right;
-        background-size: auto 100%;
-        height: 700px;
+        background-size: 1440px auto;
+        height: 800px;
     }
 }
 
@@ -80,23 +86,23 @@ export default {
     color: #01348d;
     font-size: 24px;
     font-weight: bold;
-}
-.section-2 .content-grid .text-3 {
-    color: #f9556d;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 38px;
-    margin-bottom: 0;
+    line-height: 40px;
 }
 
 @media only screen and (min-width: 600px) {
-    .section-2 .content-grid .text-2,
-    .section-2 .content-grid .text-3 {
+    .section-2 .content-grid .text-2 {
         font-size: 40px;
-    }
-    .section-2 .content-grid .text-3 {
         margin-bottom: 40px;
+        line-height: 50px;
     }
+}
+
+.section-2 .content-grid .text-3 {
+    font-size: 90px;
+    color: #fff3f4;
+    font-weight: bold;
+    line-height: 100px;
+    margin-top: 30px;
 }
 
 .content-grid .fix-width {
