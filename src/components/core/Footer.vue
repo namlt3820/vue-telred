@@ -25,7 +25,7 @@
                         <div>
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3169.739223595039!2d-121.93056678435534!3d37.39599894163341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc9689422c183%3A0xecb8971dece9acd7!2s2880%20Zanker%20Rd%2C%20San%20Jose%2C%20CA%2095134%2C%20USA!5e0!3m2!1sen!2s!4v1567155773701!5m2!1sen!2s"
-                                width="240"
+                                width="100%"
                                 height="140"
                                 frameborder="0"
                                 style="border:0;"
@@ -76,12 +76,6 @@ export default {
     text-align: center;
     padding: 26px 0;
 }
-.sec-1 .item-footer {
-    padding-right: 66px !important;
-}
-.sec-1 .item-footer:nth-last-child(1) {
-    padding-right: 0 !important;
-}
 .icon-send-mail .img {
     width: 16px;
 }
@@ -130,5 +124,21 @@ export default {
 .item-footer .list-contact .phone {
     background: url(../../assets/images/ic-phone.svg) no-repeat left top 3px;
     background-size: 14px auto;
+}
+@media screen and (min-width: 960px) {
+    .sec-1 .item-footer {
+        padding-left: 30px !important;
+    }
+    .sec-1 .item-footer:nth-child(1) {
+        padding-left: 12px !important;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .content-footer .top-footer {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
 </style>

@@ -1,6 +1,6 @@
 export default [
     {
-        path: '',
+        path: '/landing',
         name: 'Home Page',
         view: 'Home',
         meta: {
@@ -14,5 +14,6 @@ export default [
         meta: {
             page_id: 2
         }
-    }
+    },
+    { path: '*', redirect: '/landing' }
 ];
