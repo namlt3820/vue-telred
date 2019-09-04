@@ -29,41 +29,48 @@ export default {
     background-size: auto 100%;
     height: 700px;
 }
-.section-4 .content-grid .btn-read-more.theme--light.v-btn {
-    color: #fff;
-    text-transform: none;
-    font-size: 16px;
-    width: 176px;
-    height: 60px;
-    margin-top: 20px;
-}
-.section-4 .content-grid .logo {
-    display: flex;
-    color: #f9556d;
-    margin-bottom: 20px;
-}
-.section-4 .content-grid .logo .t1 {
-    font-weight: bold;
-    line-height: 20px;
-    padding-top: 3px;
-}
-.section-4 .content-grid .logo .t2 {
-    font-size: 14px;
-    line-height: 14px;
-}
-.section-4 .content-grid .text-2 {
-    color: #01348d;
-    font-size: 40px;
-    font-weight: bold;
-}
-.section-4 .content-grid .text-3 {
-    color: #f9556d;
-    font-size: 40px;
-    font-weight: bold;
-    line-height: 38px;
-    margin-bottom: 40px;
-}
-.content-grid .fix-width {
-    position: relative;
+</style>
+<style lang="scss" scoped>
+.content-grid {
+    .btn-read-more.theme--light.v-btn {
+        color: #fff;
+        text-transform: none;
+        font-size: 16px;
+        width: 176px;
+        height: 60px;
+        margin-top: 20px;
+    }
+    .logo {
+        display: flex;
+        color: #f9556d;
+        margin-bottom: 20px;
+        img {
+            padding-right: 13px;
+        }
+        .t1 {
+            font-weight: bold;
+            line-height: 20px;
+            padding-top: 3px;
+        }
+        .t2 {
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+    .text-2 {
+        color: #01348d;
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .text-3 {
+        color: #f9556d;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: 38px;
+        margin-bottom: 40px;
+    }
+    .fix-width {
+        position: relative;
+    }
 }
 </style>
