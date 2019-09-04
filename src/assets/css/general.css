@@ -16,3 +16,10 @@ body,
     background-position-y: -132%;
     background-size: 190% auto;
 }
+
+@media only screen and (min-width: 1920px) {
+    .background-page {
+        background-position-y: -170%;
+        background-size: 170% auto;
+    }
+}

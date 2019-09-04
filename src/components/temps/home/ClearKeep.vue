@@ -37,6 +37,13 @@ export default {
     display: flex;
     align-items: top;
 }
+
+@media only screen and (min-width: 1920px) {
+    .section-3 {
+        height: 1100px;
+    }
+}
+
 .section-3 .content-grid .btn-read-more.theme--light.v-btn {
     color: #fff;
     text-transform: none;

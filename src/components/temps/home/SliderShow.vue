@@ -13,8 +13,8 @@
             </v-flex>
             <v-flex xs12 sm8>
                 <carousel-3d
-                    width="600"
-                    height="600"
+                    :width="$vuetify.breakpoint.xlOnly ? 800 : 600"
+                    :height="$vuetify.breakpoint.xlOnly ? 800 : 600"
                     ref="carousel"
                     startIndex="1"
                     @before-slide-change="onBeforeSlideChange"
