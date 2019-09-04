@@ -10,6 +10,9 @@ body,
 .v-application a {
     text-decoration: none;
 }
+.clear {
+    clear: both;
+}
 .background-page {
     background: url(../images/bg-1.svg) no-repeat;
     background-position-x: 100%;

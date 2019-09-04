@@ -1,3 +1,5 @@
 module.exports = {
-    publicPath: '/landing'
+    publicPath: process.env.VUE_APP_BASE_STATIC,
+    assetsDir: 'assets',
+    filenameHashing: true
 };

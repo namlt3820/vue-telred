@@ -5,18 +5,62 @@
                 <div id="logo">
                     <img src="@/assets/images/logo.png" alt />
                 </div>
-                <div class="col-right">
-                    <v-select
-                        :items="items"
-                        outlined
-                        color="#F9556D"
-                        item-color="#F9556D"
-                        rounded
-                        append-icon="mdi-chevron-down"
-                        class="select-web"
-                        hide-details
-                        :value="myWeb"
-                    ></v-select>
+                <v-menu
+                    transition="slide-y-transition"
+                    bottom
+                    content-class="menu-on-mobile"
+                    min-width="100%"
+                    offset-y
+                    :close-on-content-click="false"
+                >
+                    <template v-slot:activator="{ on }">
+                        <v-btn icon color="#FF3F48" v-on="on" class="d-sm-flex d-md-none">
+                            <v-icon style="font-size: 34px">mdi-menu</v-icon>
+                        </v-btn>
+                    </template>
+                    <div class="content-menu">
+                        <v-menu transition="slide-y-transition" bottom>
+                            <template v-slot:activator="{ on }">
+                                <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
+                                    Tel.red
+                                    <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item target="blank" href="http://twain.ai">
+                                    <v-list-item-title>Twain.ai</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item target="blank" href="http://tel.red">
+                                    <v-list-item-title>Tel.red</v-list-item-title>
+                                </v-list-item>
+                                <v-list-item target="blank" href="http://clearkeep.io">
+                                    <v-list-item-title>Clearkeep.io</v-list-item-title>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
+                        <router-link to="/about" class="item-about">About</router-link>
+                    </div>
+                </v-menu>
+                <div class="col-right d-sm-none d-none d-md-flex">
+                    <v-menu transition="slide-y-transition" bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
+                                Tel.red
+                                <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
+                            </v-btn>
+                        </template>
+                        <v-list>
+                            <v-list-item target="blank" href="http://twain.ai">
+                                <v-list-item-title>Twain.ai</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item target="blank" href="http://tel.red">
+                                <v-list-item-title>Tel.red</v-list-item-title>
+                            </v-list-item>
+                            <v-list-item target="blank" href="http://clearkeep.io">
+                                <v-list-item-title>Clearkeep.io</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                     <router-link to="/about" class="item-about">About</router-link>
                 </div>
             </v-flex>
@@ -33,46 +77,81 @@ export default {
     })
 };
 </script>
-<style>
-.col-right {
-    width: 290px;
-    display: flex;
-    align-items: center;
-}
-.col-right .select-web.v-select > .v-input__control > .v-input__slot {
-    min-height: 35px;
-    height: 35px;
-    padding-right: 10px !important;
-}
-.col-right .select-web.v-select.v-text-field.v-text-field--enclosed .v-input__append-inner {
-    margin-top: 5px;
-}
-.col-right .select-web.v-select.v-text-field.v-text-field--enclosed .v-input__append-inner .v-icon {
-    background: url('../../assets/images/arrow-select.svg') no-repeat center center;
-    background-size: 17px auto;
-}
-.col-right .select-web.v-text-field--outlined fieldset {
-    border-width: 2px;
-    border-color: rgba(249, 85, 109, 0.6);
-}
-.col-right .select-web.v-text-field--outlined:not(.v-input--is-focused):not(.v-input--has-state):hover fieldset {
-    border-color: rgba(249, 85, 109, 0.6);
-}
-.col-right .select-web.theme--light.v-select .v-select__selections {
-    color: #01348d;
-}
-.col-right .select-web.v-select.v-text-field.v-text-field--enclosed .v-input__append-inner .v-icon::before {
-    opacity: 0;
-}
-.col-right .item-about {
-    color: #01348d;
-    font-weight: bold;
-    margin-left: 40px;
-}
+<style lang="scss">
 .content-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+    #logo img {
+        max-width: 100%;
+    }
+    .col-right {
+        width: 290px;
+        display: flex;
+        align-items: center;
+
+        .select-item-web {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+
+            .arrow-select {
+                margin-left: 10px;
+            }
+
+            .v-btn__content {
+                color: #01348d;
+                text-transform: none;
+                font-size: 16px;
+            }
+        }
+
+        .item-about {
+            color: #01348d;
+            font-weight: bold;
+            margin-left: 40px;
+        }
+    }
+}
+.menu-on-mobile {
+    background: #fde7ea;
+    padding: 10px 0;
+
+    .content-menu {
+        width: 200px;
+        margin: 0 auto;
+        text-align: center;
+
+        .select-item-web {
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+
+            .arrow-select {
+                margin-left: 10px;
+            }
+
+            .v-btn__content {
+                color: #01348d;
+                text-transform: none;
+                font-size: 16px;
+            }
+        }
+
+        .item-about {
+            color: #01348d;
+            font-weight: bold;
+        }
+    }
+}
+@media only screen and (max-width: 960px) {
+    #logo {
+        width: 60%;
+    }
+    .header .content-header {
+        margin-top: 20px;
+    }
 }
 </style>
