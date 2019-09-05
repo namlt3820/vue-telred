@@ -145,10 +145,13 @@ export default {
     text-align: center;
     font-weight: bold;
     color: #01358d;
-    font-size: 1rem;
+    font-size: 16px;
     margin-top: 3rem;
 
     @media only screen and (min-width: $small_screen) {
+        font-size: 30px;
+    }
+    @media only screen and (min-width: $medium_screen) {
         font-size: 40px;
     }
 }
@@ -163,11 +166,12 @@ export default {
 
     @media only screen and (min-width: $small_screen) {
         width: 700px;
-        font-size: 26px;
+        font-size: 20px;
     }
 
     @media only screen and (min-width: $large_screen) {
         width: 1000px;
+        font-size: 26px;
     }
 }
 </style>

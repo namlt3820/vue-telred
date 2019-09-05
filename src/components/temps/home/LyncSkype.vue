@@ -2,7 +2,7 @@
     <div class="section-2-inner">
         <v-container fluid class="content-grid">
             <v-layout wrap pa-0>
-                <v-flex xs12 v-if="$vuetify.breakpoint.mdAndDown" px-3 mb-6>
+                <v-flex xs12 v-if="$vuetify.breakpoint.xsOnly" px-3 mb-6>
                     <v-img src="@/assets/images/lync-skype-mobile.jpg" contain></v-img>
                 </v-flex>
                 <v-flex xs12 pa-md-0 pt-md-10 pa-4>
@@ -48,6 +48,9 @@ export default {
 .section-2-inner {
     height: 550px;
 
+    @media only screen and (min-width: $small_screen) {
+        height: auto;
+    }
     .btn-read-more.theme--light.v-btn {
         color: #fff;
         text-transform: none;
@@ -93,9 +96,6 @@ export default {
             font-size: 40px;
             margin-bottom: 40px;
             line-height: 50px;
-        }
-
-        @media only screen and (min-width: $medium_screen) {
             max-width: 400px;
         }
 
@@ -116,13 +116,13 @@ export default {
         position: relative;
     }
 
-    @media only screen and (min-width: $medium_screen) {
+    @media only screen and (min-width: $small_screen) {
         background: url(../../../assets/images/lync-skype.png);
         background-size: contain;
         background-repeat: no-repeat;
         width: 100%;
         height: 0;
-        padding-bottom: 55%;
+        padding-bottom: 62%;
         position: relative;
         display: flex;
         align-items: center;
