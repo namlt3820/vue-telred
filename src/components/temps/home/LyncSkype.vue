@@ -2,7 +2,7 @@
     <div class="section-2-inner">
         <v-container fluid class="content-grid">
             <v-layout wrap pa-0>
-                <v-flex xs12 v-if="$vuetify.breakpoint.xsOnly" px-3 mb-6>
+                <v-flex xs12 v-if="$vuetify.breakpoint.mdAndDown" px-3 mb-6>
                     <v-img src="@/assets/images/lync-skype-mobile.jpg" contain></v-img>
                 </v-flex>
                 <v-flex xs12 pa-md-0 pt-md-10 pa-4>
@@ -27,7 +27,7 @@
                             href="http://www.tel.red"
                             >Read more</v-btn
                         >
-                        <div class="text-3" v-if="!$vuetify.breakpoint.xsOnly">
+                        <div class="text-3" v-if="$vuetify.breakpoint.lgAndUp">
                             Lync/Skype
                             <br />for business
                         </div>
@@ -89,10 +89,18 @@ export default {
         font-weight: bold;
         line-height: 40px;
 
-        @media only screen and (min-width: 600px) {
+        @media only screen and (min-width: $small_screen) {
             font-size: 40px;
             margin-bottom: 40px;
             line-height: 50px;
+        }
+
+        @media only screen and (min-width: $medium_screen) {
+            max-width: 400px;
+        }
+
+        @media only screen and (min-width: $large_screen) {
+            max-width: 1200px;
         }
     }
 
@@ -108,7 +116,7 @@ export default {
         position: relative;
     }
 
-    @media only screen and (min-width: 600px) {
+    @media only screen and (min-width: $medium_screen) {
         background: url(../../../assets/images/lync-skype.png);
         background-size: contain;
         background-repeat: no-repeat;
@@ -125,7 +133,10 @@ export default {
                 right: 0;
                 bottom: 0;
                 left: 0;
-                top: 240px;
+                top: 60px;
+            }
+            @media only screen and (min-width: $medium_screen) {
+                top: 80px;
             }
             @media only screen and (min-width: $large_screen) {
                 top: 240px;

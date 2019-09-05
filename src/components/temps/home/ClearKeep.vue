@@ -3,10 +3,10 @@
         <v-container fluid class="content-grid">
             <div class="fix-width">
                 <v-layout wrap pa-0>
-                    <v-flex xs12 sm4 xl5 pa-0>
+                    <v-flex xs12 sm4 lg5 pa-0>
                         <v-img v-if="$vuetify.breakpoint.xsOnly" src="@/assets/images/clear-keep-mobile.png"></v-img>
                     </v-flex>
-                    <v-flex xs12 sm8 xl7>
+                    <v-flex xs12 sm8 lg7>
                         <div class="logo">
                             <img src="@/assets/images/clear-keep-icon.png" alt />
                             <div class="text-1">
@@ -41,6 +41,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import 'src/assets/css/_size_classes.scss';
+
 .section-3-inner {
     height: 820px;
     display: flex;
@@ -59,10 +60,18 @@ export default {
         align-items: center;
     }
 
-    @media only screen and (min-width: $extra_large_screen) {
+    @media only screen and (min-width: $medium_screen) {
+        background-position-x: -130px;
+    }
+
+    @media only screen and (min-width: $large_screen) {
+        background-position-x: -160px;
         background-size: contain;
-        background-position-x: 0;
         padding-bottom: 58%;
+    }
+
+    @media only screen and (min-width: $extra_large_screen) {
+        background-position-x: -40px;
     }
 
     .content-grid {
@@ -72,6 +81,9 @@ export default {
             right: 0;
             bottom: 0;
             left: 0;
+        }
+        @media only screen and (min-width: $medium_screen) {
+            top: 80px;
         }
         @media only screen and (min-width: $large_screen) {
             top: 100px;
