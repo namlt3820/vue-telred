@@ -28,37 +28,77 @@ export default {
     name: 'Contact'
 };
 </script>
-<style>
+<style lang="scss">
 .section-contact {
     background: url(../../../assets/images/bg-contact.png) no-repeat left top;
     padding: 40px 0;
+
+    .text-1 {
+        text-align: center;
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+    }
+    .text-2 {
+        text-align: center;
+        color: #fff;
+        padding-bottom: 30px;
+    }
+    .form-contact {
+        width: 610px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .form-contact .v-input {
+        margin-bottom: 10px;
+    }
+    .btn-action-contact.theme--light.v-btn {
+        color: #f8546c;
+        text-transform: none;
+        font-weight: bold;
+        font-size: 16px;
+        width: 176px;
+        height: 60px;
+        margin-top: 20px;
+    }
 }
-.section-contact .text-1 {
-    text-align: center;
-    color: #fff;
-    font-size: 60px;
-    font-weight: bold;
+
+@media screen and (max-width: 960px) {
+    .section-contact {
+        .text-1 {
+            font-size: 40px;
+        }
+        .text-2 {
+            width: 100%;
+            max-width: 500px;
+            padding: 0 12px;
+            margin: 0 auto 20px;
+        }
+        .form-contact {
+            width: 100%;
+            max-width: 400px;
+            padding: 0 12px;
+        }
+        .btn-action-contact.theme--light.v-btn {
+            height: 40px;
+            margin-top: 10px;
+            font-size: 14px;
+            width: 120px;
+        }
+    }
 }
-.section-contact .text-2 {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 30px;
-}
-.section-contact .form-contact {
-    width: 610px;
-    margin: 0 auto;
-    text-align: center;
-}
-.section-contact .form-contact .v-input {
-    margin-bottom: 10px;
-}
-.btn-action-contact.theme--light.v-btn {
-    color: #f8546c;
-    text-transform: none;
-    font-weight: bold;
-    font-size: 16px;
-    width: 176px;
-    height: 60px;
-    margin-top: 20px;
+@media screen and (max-width: 640px) {
+    .section-contact {
+        .text-1 {
+            font-size: 26px;
+        }
+        .text-2 {
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .v-text-field.v-text-field--solo .v-input__control {
+            min-height: 35px;
+        }
+    }
 }
 </style>

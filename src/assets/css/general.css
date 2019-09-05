@@ -26,15 +26,24 @@ body,
     clear: both;
 }
 .background-page {
-    background: url(../images/bg-1.svg) no-repeat;
-    background-position-x: 100%;
-    background-position-y: -81%;
-    background-size: 195% auto;
+    background: url(../images/bg-1.png) no-repeat left top;
+    background-size: 88% auto;
 }
 
-@media only screen and (min-width: 1920px) {
+/* @media only screen and (min-width: 1920px) {
     .background-page {
         background-position-y: -161%;
         background-size: 170% auto;
+    }
+} */
+
+@media only screen and (max-width: 1280px) {
+    .fix-width {
+        padding: 0 40px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .fix-width {
+        padding: 0 20px;
     }
 }
