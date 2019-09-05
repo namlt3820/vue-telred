@@ -68,7 +68,9 @@
                                 </v-list-item>
                             </v-list>
                         </v-menu>
-                        <router-link to="/about" class="item-about">About</router-link>
+                        <router-link href="https://tel.red/about.htm" target="blank" class="item-about"
+                            >About</router-link
+                        >
                     </div>
                 </v-flex>
             </v-layout>
