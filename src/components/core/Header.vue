@@ -1,24 +1,54 @@
 <template>
-    <v-container fluid class="fix-width">
-        <v-layout wrap pa-0>
-            <v-flex xs12 class="content-header">
-                <div id="logo">
-                    <img src="@/assets/images/logo.png" alt />
-                </div>
-                <v-menu
-                    transition="slide-y-transition"
-                    bottom
-                    content-class="menu-on-mobile"
-                    min-width="100%"
-                    offset-y
-                    :close-on-content-click="false"
-                >
-                    <template v-slot:activator="{ on }">
-                        <v-btn icon color="#FF3F48" v-on="on" class="d-sm-flex d-md-none">
-                            <v-icon style="font-size: 34px">mdi-menu</v-icon>
-                        </v-btn>
-                    </template>
-                    <div class="content-menu">
+    <v-container fluid>
+        <div class="fix-width">
+            <v-layout wrap pa-0>
+                <v-flex xs12 class="content-header">
+                    <div id="logo">
+                        <img src="@/assets/images/logo.png" alt />
+                    </div>
+                    <v-menu
+                        transition="slide-y-transition"
+                        bottom
+                        content-class="menu-on-mobile"
+                        min-width="100%"
+                        offset-y
+                        :close-on-content-click="false"
+                    >
+                        <template v-slot:activator="{ on }">
+                            <v-btn icon color="#FF3F48" v-on="on" class="d-sm-flex d-md-none">
+                                <v-icon style="font-size: 34px">mdi-menu</v-icon>
+                            </v-btn>
+                        </template>
+                        <div class="content-menu">
+                            <v-menu transition="slide-y-transition" bottom>
+                                <template v-slot:activator="{ on }">
+                                    <v-btn
+                                        class="select-item-web"
+                                        outlined
+                                        rounded
+                                        v-on="on"
+                                        color="rgba(249, 85, 109, 1)"
+                                    >
+                                        Tel.red
+                                        <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
+                                    </v-btn>
+                                </template>
+                                <v-list>
+                                    <v-list-item target="blank" href="http://twain.ai">
+                                        <v-list-item-title>Twain.ai</v-list-item-title>
+                                    </v-list-item>
+                                    <v-list-item target="blank" href="http://tel.red">
+                                        <v-list-item-title>Tel.red</v-list-item-title>
+                                    </v-list-item>
+                                    <v-list-item target="blank" href="http://clearkeep.io">
+                                        <v-list-item-title>Clearkeep.io</v-list-item-title>
+                                    </v-list-item>
+                                </v-list>
+                            </v-menu>
+                            <router-link to="/about" class="item-about">About</router-link>
+                        </div>
+                    </v-menu>
+                    <div class="col-right d-sm-none d-none d-md-flex">
                         <v-menu transition="slide-y-transition" bottom>
                             <template v-slot:activator="{ on }">
                                 <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
@@ -27,44 +57,22 @@
                                 </v-btn>
                             </template>
                             <v-list>
-                                <v-list-item target="blank" href="http://twain.ai">
+                                <v-list-item @click="$vuetify.goTo('#scroll-twain')">
                                     <v-list-item-title>Twain.ai</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item target="blank" href="http://tel.red">
+                                <v-list-item @click="$vuetify.goTo('#scroll-lync-skype')">
                                     <v-list-item-title>Tel.red</v-list-item-title>
                                 </v-list-item>
-                                <v-list-item target="blank" href="http://clearkeep.io">
+                                <v-list-item @click="$vuetify.goTo('#scroll-clear-keep')">
                                     <v-list-item-title>Clearkeep.io</v-list-item-title>
                                 </v-list-item>
                             </v-list>
                         </v-menu>
                         <router-link to="/about" class="item-about">About</router-link>
                     </div>
-                </v-menu>
-                <div class="col-right d-sm-none d-none d-md-flex">
-                    <v-menu transition="slide-y-transition" bottom>
-                        <template v-slot:activator="{ on }">
-                            <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
-                                Tel.red
-                                <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
-                            </v-btn>
-                        </template>
-                        <v-list>
-                            <v-list-item target="blank" href="http://twain.ai">
-                                <v-list-item-title>Twain.ai</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item target="blank" href="http://tel.red">
-                                <v-list-item-title>Tel.red</v-list-item-title>
-                            </v-list-item>
-                            <v-list-item target="blank" href="http://clearkeep.io">
-                                <v-list-item-title>Clearkeep.io</v-list-item-title>
-                            </v-list-item>
-                        </v-list>
-                    </v-menu>
-                    <router-link to="/about" class="item-about">About</router-link>
-                </div>
-            </v-flex>
-        </v-layout>
+                </v-flex>
+            </v-layout>
+        </div>
     </v-container>
 </template>
 

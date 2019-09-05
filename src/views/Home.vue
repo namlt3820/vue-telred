@@ -2,20 +2,20 @@
     <v-container fluid grid-list-xl py-0 background-page>
         <v-row wrap>
             <v-col cols="12" class="pa-0">
-                <div class="header">
+                <div class="header" id="scroll-header">
                     <core-header />
                 </div>
                 <div class="content">
                     <div class="item-section section-1">
                         <slider-show />
                     </div>
-                    <div class="item-section section-2">
+                    <div class="item-section section-2" id="scroll-lync-skype">
                         <lync-skype />
                     </div>
-                    <div class="item-section section-3">
+                    <div class="item-section section-3" id="scroll-clear-keep">
                         <clear-keep />
                     </div>
-                    <div class="item-section section-4">
+                    <div class="item-section section-4" id="scroll-twain">
                         <twain />
                     </div>
                     <div class="item-section section-contact-us">

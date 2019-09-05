@@ -56,15 +56,37 @@
         <div class="copyright">
             <div class="fix-width">Copyright ⓒ 2012-2019 TEL.RED, LLC. All rights reserved.</div>
         </div>
+        <div id="back-to-top" @click="$vuetify.goTo('#scroll-header')" v-scroll="handleScroll">
+            <img src="@/assets/images/back-to-top.svg" />
+        </div>
     </v-container>
 </template>
 
 <script>
 export default {
-    name: 'Footer'
+    name: 'Footer',
+    directives: {
+        scroll(el, binding) {
+            const f = function(evt) {
+                if (binding.value(evt, el)) {
+                    window.removeEventListener('scroll', f);
+                }
+            };
+            window.addEventListener('scroll', f);
+        }
+    },
+    methods: {
+        handleScroll(evt, el) {
+            if (window.scrollY > 50) {
+                el.setAttribute('style', 'opacity: 1');
+            } else {
+                el.setAttribute('style', 'opacity: 0');
+            }
+        }
+    }
 };
 </script>
-<style scoped>
+<style lang="scss">
 .content-footer .top-footer {
     background: #0c2752;
     color: #fff;
@@ -124,6 +146,24 @@ export default {
 .item-footer .list-contact .phone {
     background: url(../../assets/images/ic-phone.svg) no-repeat left top 3px;
     background-size: 14px auto;
+}
+#back-to-top {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    bottom: 18px;
+    right: 18px;
+    background-color: rgb(248, 84, 108);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+
+    img {
+        width: 11px;
+    }
 }
 @media screen and (min-width: 960px) {
     .sec-1 .item-footer {
