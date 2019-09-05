@@ -24,3 +24,14 @@ body,
         background-size: 170% auto;
     }
 } */
+
+@media only screen and (max-width: 1280px) {
+    .fix-width {
+        padding: 0 40px;
+    }
+}
+@media only screen and (max-width: 640px) {
+    .fix-width {
+        padding: 0 20px;
+    }
+}
