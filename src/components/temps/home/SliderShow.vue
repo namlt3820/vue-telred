@@ -27,8 +27,8 @@
                     </v-flex>
                     <v-flex xs12 sm10>
                         <carousel-3d
-                            :width="$vuetify.breakpoint.xlOnly ? 600 : 800"
-                            :height="$vuetify.breakpoint.xlOnly ? 600 : 840"
+                            :width="$vuetify.breakpoint.xsOnly ? 600 : 800"
+                            :height="$vuetify.breakpoint.xsOnly ? 600 : 840"
                             ref="carousel"
                             startIndex="1"
                             @before-slide-change="onBeforeSlideChange"
@@ -118,7 +118,6 @@ export default {
 
 @media only screen and (min-width: 1920px) {
     .carousel-container {
-        background-size: cover;
         background-position-y: 100px;
     }
 }
