@@ -3,10 +3,22 @@ body,
     font-family: 'Montserrat', sans-serif;
 }
 .fix-width {
-    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 }
+
+@media only screen and (min-width: 960px) {
+    .fix-width {
+        max-width: 850px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .fix-width {
+        max-width: 1200px;
+    }
+}
+
 .v-application a {
     text-decoration: none;
 }
