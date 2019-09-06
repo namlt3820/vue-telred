@@ -105,10 +105,10 @@ export default {
 
         .content-grid {
             .text-2 {
-                font-size: 26px;
+                font-size: 24px;
             }
             .text-3 {
-                font-size: 26px;
+                font-size: 24px;
                 margin-bottom: 0;
             }
             .btn-read-more.theme--light.v-btn {
