@@ -12,11 +12,13 @@
             <v-layout wrap pa-0>
                 <v-flex xs0 md1 xl2 :class="`d-md-flex justify-end align-center d-none`">
                     <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
-                        <img v-if="!leftActive" :src="require('@/assets/images/slide-left.png')" alt="slide-left" />
                         <img
-                            v-if="leftActive"
-                            :src="require('@/assets/images/slide-left-active.png')"
-                            alt="slide-left-active"
+                            :src="
+                                leftActive
+                                    ? require('@/assets/images/slide-left-active.png')
+                                    : require('@/assets/images/slide-left.png')
+                            "
+                            alt="slide-left"
                         />
                     </div>
                 </v-flex>
@@ -52,11 +54,13 @@
                         @mouseover="rightActive = true"
                         @mouseout="rightActive = false"
                     >
-                        <img v-if="!rightActive" :src="require('@/assets/images/slide-right.png')" alt="slide-right" />
                         <img
-                            v-if="rightActive"
-                            :src="require('@/assets/images/slide-right-active.png')"
-                            alt="slide-right-active"
+                            :src="
+                                rightActive
+                                    ? require('@/assets/images/slide-right-active.png')
+                                    : require('@/assets/images/slide-right.png')
+                            "
+                            alt="slide-right"
                         />
                     </div>
                 </v-flex>
