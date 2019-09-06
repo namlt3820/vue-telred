@@ -101,6 +101,10 @@ export default {
             font-size: 40px;
             margin-bottom: 40px;
             line-height: 50px;
+            max-width: 400px;
+        }
+        @media only screen and (min-width: $large_screen) {
+            max-width: 1200px;
         }
     }
 
@@ -122,7 +126,7 @@ export default {
         background-repeat: no-repeat;
         width: 100%;
         height: 0;
-        padding-bottom: 62%;
+        padding-bottom: 55%;
         position: relative;
         display: flex;
         align-items: center;

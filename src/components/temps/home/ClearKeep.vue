@@ -73,6 +73,7 @@ export default {
     @media only screen and (min-width: $extra_large_screen) {
         background-position-x: -35px;
         background-size: 102%;
+        padding-bottom: 60%;
     }
 
     .content-grid {
@@ -136,6 +137,10 @@ export default {
                 font-size: 40px;
                 margin-bottom: 40px;
                 line-height: 50px;
+                max-width: 500px;
+            }
+            @media only screen and (min-width: $large_screen) {
+                max-width: 1200px;
             }
         }
 
