@@ -58,7 +58,7 @@
                                 <img class="img" src="@/assets/images/arrow-send-mail.svg" alt />
                             </v-btn>
                         </div>
-                        <div class="text-1">Get the latest news & promotion in your in box !</div>
+                        <div class="text-1">Get the latest news & promotion in your inbox !</div>
                     </v-col>
                 </v-row>
             </div>
@@ -129,7 +129,7 @@ export default {
 .content-footer .top-footer {
     background: #0c2752;
     color: #fff;
-    padding: 80px 0 40px 0;
+    padding: 60px 0 40px 0;
 }
 .content-footer .copyright {
     background: #091f46;
@@ -164,6 +164,7 @@ export default {
     font-weight: bold;
     padding-bottom: 25px;
     font-size: 18px;
+    padding-top: 28px;
 }
 .item-footer .text-1 {
     padding-top: 20px;
@@ -205,10 +206,14 @@ export default {
     justify-content: center;
     cursor: pointer;
     opacity: 0;
+    z-index: 99;
 
     img {
         width: 11px;
     }
+}
+.footer .top-footer .logo-footer {
+    max-width: 100%;
 }
 @media screen and (min-width: 960px) {
     .sec-1 .item-footer {
@@ -230,10 +235,6 @@ export default {
     .footer .top-footer {
         .item-footer {
             padding: 0 12px !important;
-
-            .logo-footer {
-                max-width: 100%;
-            }
         }
     }
 }

@@ -29,7 +29,7 @@
                                         v-on="on"
                                         color="rgba(249, 85, 109, 1)"
                                     >
-                                        Tel.red
+                                        Twain.ai
                                         <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
                                     </v-btn>
                                 </template>

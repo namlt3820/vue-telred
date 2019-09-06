@@ -1,5 +1,3 @@
-'use strict';
-
 import Vue from 'vue';
 import axios from 'axios';
 // import store from '../store';
@@ -7,10 +5,10 @@ import axios from 'axios';
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-let config = {
+const config = {
     baseURL: process.env.VUE_APP_API_URL || '',
     statusSuccess: [400, 409],
-    validateStatus: function(status) {
+    validateStatus(status) {
         return (status >= 200 && status < 300) || config.statusSuccess.indexOf(status) > -1; // default
     },
     timeout: 30 * 60 * 1000 // Timeout
@@ -40,7 +38,7 @@ _axios.interceptors.response.use(
         if (error.response && error.response.status === 401) {
             // store.dispatch('logout');
         } else {
-            //store.dispatch("common/setStateErrorRequest");
+            // store.dispatch("common/setStateErrorRequest");
         }
         return Promise.reject(error);
     }
