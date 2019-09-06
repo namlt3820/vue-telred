@@ -72,9 +72,9 @@ export default {
     name: 'Contact',
     data: () => ({
         myForm: {
-            f_fullname: 'Quan',
-            f_email: 'quan.nguyen@vmodev.com',
-            f_message: 'Demo'
+            f_fullname: '',
+            f_email: '',
+            f_message: ''
         }
     }),
     mounted() {

@@ -52,7 +52,7 @@
                         <v-menu transition="slide-y-transition" bottom>
                             <template v-slot:activator="{ on }">
                                 <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
-                                    Tel.red
+                                    Twain.ai
                                     <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
                                 </v-btn>
                             </template>
@@ -119,6 +119,9 @@ export default {
             color: #01348d;
             font-weight: bold;
             margin-left: 40px;
+        }
+        .item-about:hover {
+            text-decoration: underline;
         }
     }
 }
