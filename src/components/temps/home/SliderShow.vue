@@ -9,28 +9,33 @@
             </p>
         </div>
         <div class="carousel-container">
-            <v-layout wrap pa-0 ma-0>
-                <v-flex xs0 md1 xl2 :class="`d-md-flex justify-end align-center d-none`">
-                    <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
-                        <img
-                            :src="
-                                leftActive
-                                    ? require('@/assets/images/slide-left-active.png')
-                                    : require('@/assets/images/slide-left.png')
-                            "
-                            alt="slide-left"
-                        />
-                    </div>
-                </v-flex>
-                <v-flex xs12 md10 xl8>
-                    <div class="fix-width">
+            <div class="fix-width-slider">
+                <v-layout wrap pa-0 ma-0>
+                    <v-flex xs0 lg1 :class="`d-lg-flex justify-end align-center d-none`">
+                        <div
+                            class="arrow"
+                            @click="leftSlide"
+                            @mouseover="leftActive = true"
+                            @mouseout="leftActive = false"
+                        >
+                            <img
+                                :src="
+                                    leftActive
+                                        ? require('@/assets/images/slide-left-active.png')
+                                        : require('@/assets/images/slide-left.png')
+                                "
+                                alt="slide-left"
+                            />
+                        </div>
+                    </v-flex>
+                    <v-flex xs12 lg10>
                         <carousel-3d
                             :width="slideWidth"
                             :height="slideHeight"
                             ref="carousel"
                             startIndex="0"
                             @before-slide-change="onBeforeSlideChange"
-                            :autoplay="!$vuetify.breakpoint.mdAndUp"
+                            :autoplay="$vuetify.breakpoint.mdAndDown"
                             :autoplayTimeout="$vuetify.breakpoint.xsOnly ? 3000 : 2000"
                             :perspective="0"
                             :space="slideSpace"
@@ -45,26 +50,26 @@
                                 <img :src="require('@/assets/images/silde-3.png')" alt="slide3" />
                             </slide>
                         </carousel-3d>
-                    </div>
-                </v-flex>
-                <v-flex xs0 md1 xl2 :class="`d-md-flex justify-start align-center d-none`">
-                    <div
-                        class="arrow"
-                        @click="rightSlide"
-                        @mouseover="rightActive = true"
-                        @mouseout="rightActive = false"
-                    >
-                        <img
-                            :src="
-                                rightActive
-                                    ? require('@/assets/images/slide-right-active.png')
-                                    : require('@/assets/images/slide-right.png')
-                            "
-                            alt="slide-right"
-                        />
-                    </div>
-                </v-flex>
-            </v-layout>
+                    </v-flex>
+                    <v-flex xs0 lg1 :class="`d-lg-flex justify-start align-center d-none`">
+                        <div
+                            class="arrow"
+                            @click="rightSlide"
+                            @mouseover="rightActive = true"
+                            @mouseout="rightActive = false"
+                        >
+                            <img
+                                :src="
+                                    rightActive
+                                        ? require('@/assets/images/slide-right-active.png')
+                                        : require('@/assets/images/slide-right.png')
+                                "
+                                alt="slide-right"
+                            />
+                        </div>
+                    </v-flex>
+                </v-layout>
+            </div>
         </div>
     </v-container>
 </template>
@@ -105,15 +110,15 @@ export default {
         slideSpace() {
             switch (this.$vuetify.breakpoint.name) {
                 case 'xs':
-                    return '400';
+                    return '450';
                 case 'sm':
                     return '250';
                 case 'md':
                     return '300';
                 case 'lg':
-                    return '400';
+                    return '500';
                 case 'xl':
-                    return 'auto';
+                    return '600';
                 default:
                     return '400';
             }
@@ -128,9 +133,9 @@ export default {
                 case 'md':
                     return '450';
                 case 'lg':
-                    return '800';
+                    return '600';
                 case 'xl':
-                    return '720';
+                    return '600';
                 default:
                     return '300';
             }
@@ -145,6 +150,7 @@ export default {
                 case 'md':
                     return '500';
                 case 'lg':
+                    return '650';
                 case 'xl':
                     return '850';
                 default:
@@ -157,7 +163,13 @@ export default {
 
 <style lang="scss" scoped>
 @import 'src/assets/css/_size_classes.scss';
-
+.fix-width-slider {
+    @media only screen and (min-width: $extra_large_screen) {
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1600px;
+    }
+}
 .carousel-container {
     background-image: url('../../../assets/images/slide-bg.png');
     background-position: center;
