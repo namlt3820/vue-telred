@@ -3,13 +3,13 @@
         <div class="top-footer">
             <div class="fix-width">
                 <v-row class="sec-1">
-                    <v-col md="3" sm="6" class="item-footer">
-                        <img src="@/assets/images/logo-white.png" alt />
+                    <v-col md="3" sm="6" cols="12" class="item-footer">
+                        <img class="logo-footer" src="@/assets/images/logo-white.png" alt />
                         <div class="text-2">
                             Tel.red creates AI and Skype, VOIP and communication products to make busineses thrive.
                         </div>
                     </v-col>
-                    <v-col md="3" sm="6" class="item-footer">
+                    <v-col md="3" sm="6" cols="12" class="item-footer">
                         <div class="title-item">Contact info</div>
                         <ul class="list-contact">
                             <li class="address">2880 Zanker Road, San Jose, California 95134-2141 USA</li>
@@ -20,7 +20,7 @@
                             <li class="phone">202-555-0130</li>
                         </ul>
                     </v-col>
-                    <v-col md="3" sm="6" class="item-footer">
+                    <v-col md="3" sm="6" cols="12" class="item-footer">
                         <div class="title-item">Map</div>
                         <div>
                             <iframe
@@ -33,10 +33,12 @@
                             ></iframe>
                         </div>
                     </v-col>
-                    <v-col md="3" sm="6" class="item-footer">
+                    <v-col md="3" sm="6" cols="12" class="item-footer">
                         <div class="title-item">Newsletter</div>
                         <div class="box-input">
                             <v-text-field
+                                v-model="myEmail"
+                                ref="myEmail"
                                 label="Email"
                                 solo
                                 background-color="#fff"
@@ -44,7 +46,15 @@
                                 hide-details
                                 color="#F8546C"
                             ></v-text-field>
-                            <v-btn class="icon-send-mail" fab dark color="#F8546C" height="48px" width="48px">
+                            <v-btn
+                                class="icon-send-mail"
+                                fab
+                                dark
+                                color="#F8546C"
+                                height="48px"
+                                width="48px"
+                                @click="sendEmail()"
+                            >
                                 <img class="img" src="@/assets/images/arrow-send-mail.svg" alt />
                             </v-btn>
                         </div>
@@ -63,8 +73,13 @@
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
     name: 'Footer',
+    data: () => ({
+        myEmail: ''
+    }),
     directives: {
         scroll(el, binding) {
             const f = function(evt) {
@@ -75,6 +90,9 @@ export default {
             window.addEventListener('scroll', f);
         }
     },
+    created() {
+        // console.log(screen.width);
+    },
     methods: {
         handleScroll(evt, el) {
             if (window.scrollY > 50) {
@@ -82,6 +100,27 @@ export default {
             } else {
                 el.setAttribute('style', 'opacity: 0');
             }
+        },
+        sendEmail() {
+            if (!this.myEmail) {
+                this.$refs.myEmail.focus();
+                return;
+            }
+            const bodyFormData = new FormData();
+            bodyFormData.set('sheetName', 'Sheet2');
+            bodyFormData.set('email', this.myEmail);
+
+            Vue.axios
+                .post(
+                    'https://script.google.com/macros/s/AKfycbxHVv__ThbYEMzB-P5wT5EvMtHccnxPBbKKnSual7LG7trbk1U/exec',
+                    bodyFormData
+                )
+                .then(res => {
+                    console.log(res);
+                })
+                .catch(() => {
+                    // console.log(e);
+                });
         }
     }
 };
@@ -109,9 +148,15 @@ export default {
     top: 0;
     right: 0;
 }
-.box-input .box-input .v-input input {
-    color: #f8546c !important;
+.box-input {
+    .v-input input {
+        color: #f8546c !important;
+    }
+    .v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot {
+        padding-right: 26px;
+    }
 }
+
 .box-input .v-input .v-label {
     color: #f8546c !important;
 }
@@ -179,6 +224,45 @@ export default {
     .content-footer .top-footer {
         padding-left: 12px;
         padding-right: 12px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .footer .top-footer {
+        .item-footer {
+            padding: 0 12px !important;
+
+            .logo-footer {
+                max-width: 100%;
+            }
+        }
+    }
+}
+@media screen and (max-width: 768px) {
+    .footer .top-footer .item-footer {
+        margin-bottom: 30px;
+    }
+}
+@media screen and (max-width: 599px) {
+    .footer .top-footer {
+        padding: 40px 12px;
+    }
+    .footer .item-footer:nth-last-child(1) {
+        margin-bottom: 0px;
+    }
+    .item-footer .title-item {
+        padding-bottom: 10px;
+    }
+    .item-footer .list-contact .address {
+        background: url(../../assets/images/ic-location.svg) no-repeat left top 5px;
+        background-size: 14px auto;
+    }
+    .item-footer .list-contact .email {
+        background: url(../../assets/images/ic-mail.svg) no-repeat left top 8px;
+        background-size: 14px auto;
+    }
+    .item-footer .list-contact .phone {
+        background: url(../../assets/images/ic-phone.svg) no-repeat left top 5px;
+        background-size: 14px auto;
     }
 }
 </style>

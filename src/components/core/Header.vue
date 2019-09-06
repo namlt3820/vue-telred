@@ -34,18 +34,18 @@
                                     </v-btn>
                                 </template>
                                 <v-list>
-                                    <v-list-item target="blank" href="http://twain.ai">
+                                    <v-list-item @click="$vuetify.goTo('#scroll-twain')">
                                         <v-list-item-title>Twain.ai</v-list-item-title>
                                     </v-list-item>
-                                    <v-list-item target="blank" href="http://tel.red">
+                                    <v-list-item @click="$vuetify.goTo('#scroll-lync-skype')">
                                         <v-list-item-title>Tel.red</v-list-item-title>
                                     </v-list-item>
-                                    <v-list-item target="blank" href="http://clearkeep.io">
+                                    <v-list-item @click="$vuetify.goTo('#scroll-clear-keep')">
                                         <v-list-item-title>Clearkeep.io</v-list-item-title>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
-                            <router-link to="/about" class="item-about">About</router-link>
+                            <a class="item-about" href="https://tel.red/about.htm" target="blank">About</a>
                         </div>
                     </v-menu>
                     <div class="col-right d-sm-none d-none d-md-flex">
