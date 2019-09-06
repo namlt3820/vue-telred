@@ -198,9 +198,13 @@ export default {
 .title-2 {
     text-align: center;
     color: #f9556d;
-    width: 320px;
+    width: 280px;
     margin: auto;
     font-size: 16px;
+
+    @media only screen and (min-width: 350px) {
+        width: 350px;
+    }
 
     @media only screen and (min-width: $small_screen) {
         width: 700px;
