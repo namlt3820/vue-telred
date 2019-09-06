@@ -2,7 +2,7 @@
     <v-container fluid class="section-contact">
         <div class="fix-width">
             <div class="text-1">Get in Touch with Us</div>
-            <div class="text-2">We'd love to hear from you. Drop us a note and we'l get back to you ASAP.</div>
+            <div class="text-2">We'd love to hear from you. Drop us a note and we'll get back to you ASAP.</div>
             <v-form class="form-contact">
                 <ValidationProvider name="fullname" rules="required" v-slot="{ errors }">
                     <v-text-field
@@ -72,9 +72,9 @@ export default {
     name: 'Contact',
     data: () => ({
         myForm: {
-            f_fullname: 'Quan',
-            f_email: 'quan.nguyen@vmodev.com',
-            f_message: 'Demo'
+            f_fullname: '',
+            f_email: '',
+            f_message: ''
         }
     }),
     mounted() {

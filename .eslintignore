@@ -1,0 +1,4 @@
+src/mixins/*
+src/store/*
+src/plugins/*
+src/configs/*
