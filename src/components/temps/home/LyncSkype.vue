@@ -5,7 +5,7 @@
                 <v-flex xs12 v-if="$vuetify.breakpoint.xsOnly" px-3 mb-6>
                     <v-img src="@/assets/images/lync-skype-mobile.jpg" contain></v-img>
                 </v-flex>
-                <v-flex xs12 pa-md-0 pt-md-10 pa-4>
+                <v-flex xs12 pa-md-0 pt-md-10 pa-4 pb->
                     <div class="fix-width">
                         <div class="logo">
                             <img src="@/assets/images/lync-skype-icon.png" alt />
@@ -16,7 +16,8 @@
                         </div>
                         <div class="text-2">
                             There was no Skype client
-                            <br />for Linux. So we <span style="color: #f9566d">built it</span>.
+                            <br v-if="!$vuetify.breakpoint.xsOnly" />for Linux. So we
+                            <span style="color: #f9566d">built it</span>.
                         </div>
                         <v-btn
                             depressed
@@ -46,7 +47,7 @@ export default {
 @import 'src/assets/css/_size_classes.scss';
 
 .section-2-inner {
-    height: 550px;
+    height: 600px;
 
     @media only screen and (min-width: $small_screen) {
         height: auto;
@@ -93,14 +94,13 @@ export default {
         line-height: 40px;
 
         @media only screen and (min-width: $small_screen) {
+            margin-bottom: 20px;
+            line-height: 30px;
+        }
+        @media only screen and (min-width: $medium_screen) {
             font-size: 40px;
             margin-bottom: 40px;
             line-height: 50px;
-            max-width: 400px;
-        }
-
-        @media only screen and (min-width: $large_screen) {
-            max-width: 1200px;
         }
     }
 

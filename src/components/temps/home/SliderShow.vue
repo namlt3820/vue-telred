@@ -9,7 +9,7 @@
             </p>
         </div>
         <div class="carousel-container">
-            <v-layout wrap pa-0>
+            <v-layout wrap pa-0 ma-0>
                 <v-flex xs0 md1 xl2 :class="`d-md-flex justify-end align-center d-none`">
                     <div class="arrow" @click="leftSlide" @mouseover="leftActive = true" @mouseout="leftActive = false">
                         <img
@@ -25,15 +25,15 @@
                 <v-flex xs12 md10 xl8>
                     <div class="fix-width">
                         <carousel-3d
-                            :width="$vuetify.breakpoint.xsOnly ? 600 : 800"
-                            :height="$vuetify.breakpoint.xsOnly ? 600 : 840"
+                            :width="slideWidth"
+                            :height="slideHeight"
                             ref="carousel"
-                            startIndex="1"
+                            startIndex="0"
                             @before-slide-change="onBeforeSlideChange"
                             :autoplay="!$vuetify.breakpoint.mdAndUp"
                             :autoplayTimeout="$vuetify.breakpoint.xsOnly ? 3000 : 2000"
                             :perspective="0"
-                            :space="spaceSlide"
+                            :space="slideSpace"
                         >
                             <slide :index="0">
                                 <img :src="require('@/assets/images/silde-1.png')" alt="slide1" />
@@ -102,18 +102,53 @@ export default {
         }
     },
     computed: {
-        spaceSlide() {
+        slideSpace() {
             switch (this.$vuetify.breakpoint.name) {
                 case 'xs':
+                    return '400';
                 case 'sm':
+                    return '250';
                 case 'md':
-                    return '500px';
+                    return '300';
                 case 'lg':
-                    return 'auto';
+                    return '400';
                 case 'xl':
                     return 'auto';
                 default:
-                    return 'auto';
+                    return '400';
+            }
+        },
+
+        slideWidth() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs':
+                    return '400';
+                case 'sm':
+                    return '300';
+                case 'md':
+                    return '450';
+                case 'lg':
+                    return '800';
+                case 'xl':
+                    return '720';
+                default:
+                    return '300';
+            }
+        },
+
+        slideHeight() {
+            switch (this.$vuetify.breakpoint.name) {
+                case 'xs':
+                    return '420';
+                case 'sm':
+                    return '350';
+                case 'md':
+                    return '500';
+                case 'lg':
+                case 'xl':
+                    return '850';
+                default:
+                    return '350';
             }
         }
     }
@@ -163,14 +198,14 @@ export default {
 .title-2 {
     text-align: center;
     color: #f9556d;
-    width: 365px;
+    width: 320px;
     margin: auto;
     font-size: 16px;
-    margin-bottom: 2rem;
 
     @media only screen and (min-width: $small_screen) {
         width: 700px;
         font-size: 20px;
+        margin-bottom: 2rem;
     }
 
     @media only screen and (min-width: $large_screen) {

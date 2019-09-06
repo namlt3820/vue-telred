@@ -43,7 +43,7 @@ export default {
 @import 'src/assets/css/_size_classes.scss';
 
 .section-3-inner {
-    height: 820px;
+    height: 600px;
     display: flex;
     align-items: top;
 
