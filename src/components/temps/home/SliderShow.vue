@@ -212,6 +212,10 @@ export default {
         margin-bottom: 2rem;
     }
 
+    @media only screen and (min-width: $medium_screen) {
+        width: 800px;
+    }
+
     @media only screen and (min-width: $large_screen) {
         width: 1000px;
         font-size: 26px;
