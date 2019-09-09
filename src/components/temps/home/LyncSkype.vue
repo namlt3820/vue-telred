@@ -28,10 +28,10 @@
                             href="http://www.tel.red"
                             >Read more</v-btn
                         >
-                        <div class="text-3" v-if="$vuetify.breakpoint.lgAndUp">
+                        <!-- <div class="text-3" v-if="$vuetify.breakpoint.lgAndUp">
                             Lync/Skype
                             <br />for business
-                        </div>
+                        </div>-->
                     </div>
                 </v-flex>
             </v-layout>

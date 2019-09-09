@@ -33,13 +33,6 @@ body,
     background-size: 88% auto;
 }
 
-/* @media only screen and (min-width: 1920px) {
-    .background-page {
-        background-position-y: -161%;
-        background-size: 170% auto;
-    }
-} */
-
 @media only screen and (max-width: 1280px) {
     .fix-width {
         padding: 0 40px;

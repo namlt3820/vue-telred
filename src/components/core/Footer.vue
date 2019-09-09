@@ -36,16 +36,18 @@
                     <v-col md="3" sm="6" cols="12" class="item-footer">
                         <div class="title-item">Newsletter</div>
                         <div class="box-input">
-                            <v-text-field
-                                v-model="myEmail"
-                                ref="myEmail"
-                                label="Email"
-                                solo
-                                background-color="#fff"
-                                rounded
-                                hide-details
-                                color="#F8546C"
-                            ></v-text-field>
+                            <ValidationProvider name="Email" ref="vEmail" rules="required|email" v-slot="{ errors }">
+                                <v-text-field
+                                    v-model="myEmail"
+                                    ref="myEmail"
+                                    label="Email"
+                                    solo
+                                    background-color="#fff"
+                                    rounded
+                                    hide-details
+                                    color="#F8546C"
+                                ></v-text-field>
+                            </ValidationProvider>
                             <v-btn
                                 class="icon-send-mail"
                                 fab
@@ -53,7 +55,7 @@
                                 color="#F8546C"
                                 height="48px"
                                 width="48px"
-                                @click="sendEmail()"
+                                @click="onSubmit()"
                             >
                                 <img class="img" src="@/assets/images/arrow-send-mail.svg" alt />
                             </v-btn>
@@ -69,6 +71,16 @@
         <div id="back-to-top" @click="$vuetify.goTo('#scroll-header')" v-scroll="handleScroll">
             <img src="@/assets/images/back-to-top.svg" />
         </div>
+        <v-dialog v-model="dialog" max-width="400">
+            <v-card>
+                <v-card-title class="headline">Alert</v-card-title>
+                <v-card-text class="text-dialog" v-bind:class="{ 'text-success': classSuccess }">{{ msg }}</v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn text @click="dialog = false">OK</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-container>
 </template>
 
@@ -78,16 +90,20 @@ import Vue from 'vue';
 export default {
     name: 'Footer',
     data: () => ({
-        myEmail: ''
+        myEmail: '',
+        sendAPI: false,
+        dialog: false,
+        classSuccess: false,
+        msg: ''
     }),
     directives: {
         scroll(el, binding) {
-            const f = function(evt) {
+            const funcCheck = function(evt) {
                 if (binding.value(evt, el)) {
-                    window.removeEventListener('scroll', f);
+                    window.removeEventListener('scroll', funcCheck);
                 }
             };
-            window.addEventListener('scroll', f);
+            window.addEventListener('scroll', funcCheck);
         }
     },
     created() {
@@ -101,11 +117,24 @@ export default {
                 el.setAttribute('style', 'opacity: 0');
             }
         },
-        sendEmail() {
+        onSubmit() {
+            if (this.sendAPI) return;
+
             if (!this.myEmail) {
                 this.$refs.myEmail.focus();
                 return;
             }
+
+            this.$refs.vEmail.validate().then(res => {
+                if (!res.valid) {
+                    this.$refs.myEmail.focus();
+                } else {
+                    this.sendEmail();
+                }
+            });
+        },
+        sendEmail() {
+            this.sendAPI = true;
             const bodyFormData = new FormData();
             bodyFormData.set('sheetName', 'Sheet2');
             bodyFormData.set('email', this.myEmail);
@@ -116,7 +145,12 @@ export default {
                     bodyFormData
                 )
                 .then(res => {
-                    console.log(res);
+                    this.classSuccess = res.data.result === 'success';
+                    this.msg = res.data.result;
+                    this.dialog = true;
+                    this.sendAPI = false;
+
+                    this.myEmail = '';
                 })
                 .catch(() => {
                     // console.log(e);
@@ -215,6 +249,10 @@ export default {
 .footer .top-footer .logo-footer {
     max-width: 100%;
 }
+.theme--light.v-card > .v-card__text.text-success {
+    color: #4caf50;
+}
+
 @media screen and (min-width: 960px) {
     .sec-1 .item-footer {
         padding-left: 30px !important;

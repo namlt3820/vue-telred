@@ -13,6 +13,7 @@
                         min-width="100%"
                         offset-y
                         :close-on-content-click="false"
+                        v-model="openMenu"
                     >
                         <template v-slot:activator="{ on }">
                             <v-btn icon color="#FF3F48" v-on="on" class="d-sm-flex d-md-none">
@@ -29,30 +30,55 @@
                                         v-on="on"
                                         color="rgba(249, 85, 109, 1)"
                                     >
-                                        Twain.ai
+                                        Tel.red
                                         <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
                                     </v-btn>
                                 </template>
                                 <v-list>
-                                    <v-list-item @click="$vuetify.goTo('#scroll-twain')">
+                                    <v-list-item
+                                        @click="
+                                            openMenu = false;
+                                            $vuetify.goTo('#scroll-twain');
+                                        "
+                                    >
                                         <v-list-item-title>Twain.ai</v-list-item-title>
                                     </v-list-item>
-                                    <v-list-item @click="$vuetify.goTo('#scroll-lync-skype')">
+                                    <v-list-item
+                                        @click="
+                                            openMenu = false;
+                                            $vuetify.goTo('#scroll-lync-skype');
+                                        "
+                                    >
                                         <v-list-item-title>Tel.red</v-list-item-title>
                                     </v-list-item>
-                                    <v-list-item @click="$vuetify.goTo('#scroll-clear-keep')">
+                                    <v-list-item
+                                        @click="
+                                            openMenu = false;
+                                            $vuetify.goTo('#scroll-clear-keep');
+                                        "
+                                    >
                                         <v-list-item-title>Clearkeep.io</v-list-item-title>
                                     </v-list-item>
                                 </v-list>
                             </v-menu>
-                            <a class="item-about" href="https://tel.red/about.htm" target="blank">About</a>
+                            <v-btn
+                                text
+                                color="#01348d"
+                                href="https://tel.red/about.htm"
+                                target="blank"
+                                class="item-about"
+                                large
+                                rounded
+                                height="36"
+                                >About</v-btn
+                            >
                         </div>
                     </v-menu>
                     <div class="col-right d-sm-none d-none d-md-flex">
                         <v-menu transition="slide-y-transition" bottom>
                             <template v-slot:activator="{ on }">
                                 <v-btn class="select-item-web" outlined rounded v-on="on" color="rgba(249, 85, 109, 1)">
-                                    Twain.ai
+                                    Tel.red
                                     <img width="17" class="arrow-select" src="@/assets/images/arrow-select.svg" />
                                 </v-btn>
                             </template>
@@ -68,7 +94,17 @@
                                 </v-list-item>
                             </v-list>
                         </v-menu>
-                        <a class="item-about" href="https://tel.red/about.htm" target="blank">About</a>
+                        <v-btn
+                            text
+                            color="#01348d"
+                            href="https://tel.red/about.htm"
+                            target="blank"
+                            class="item-about"
+                            large
+                            rounded
+                            height="36"
+                            >About</v-btn
+                        >
                     </div>
                 </v-flex>
             </v-layout>
@@ -80,8 +116,7 @@
 export default {
     name: 'Header',
     data: () => ({
-        items: ['Twain.ai', 'Tel.red', 'Clearkeep.io'],
-        myWeb: 'Twain.ai'
+        openMenu: false
     })
 };
 </script>
@@ -116,12 +151,14 @@ export default {
         }
 
         .item-about {
-            color: #01348d;
             font-weight: bold;
-            margin-left: 40px;
-        }
-        .item-about:hover {
-            text-decoration: underline;
+            margin-left: 20px;
+            text-transform: none;
+
+            .v-btn__content {
+                letter-spacing: normal;
+                font-size: 16px;
+            }
         }
     }
 }

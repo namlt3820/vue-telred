@@ -3,8 +3,8 @@
         <div class="fix-width">
             <div class="text-1">Get in Touch with Us</div>
             <div class="text-2">We'd love to hear from you. Drop us a note and we'll get back to you ASAP.</div>
-            <v-form class="form-contact">
-                <ValidationProvider name="fullname" rules="required" v-slot="{ errors }">
+            <ValidationObserver tag="form" ref="observer" v-slot="{ invalid }" class="form-contact">
+                <ValidationProvider name="Fullname" rules="required|max100" ref="vFullName" v-slot="{ errors }">
                     <v-text-field
                         label="Name"
                         solo
@@ -12,61 +12,64 @@
                         flat
                         color="#666"
                         v-model="myForm.f_fullname"
+                        ref="fFullName"
                     ></v-text-field>
                     <p>{{ errors[0] }}</p>
                 </ValidationProvider>
-                <!-- <v-text-field
-                            label="Name"
-                            solo
-                            hide-details
-                            flat
-                            color="#666"
-                            v-model="myForm.f_fullname"
-                            data-vv-name="fullname"
-                            :error-messages="errors.collect('fullname')"
-                            v-validate="{required: true, max:100}"
-                ></v-text-field>-->
-                <v-text-field
-                    label="E-mail"
-                    solo
-                    hide-details
-                    flat
-                    color="#666"
-                    v-model="myForm.f_email"
-                ></v-text-field>
+                <ValidationProvider name="Email" ref="vEmail" rules="required|email" v-slot="{ errors }">
+                    <v-text-field
+                        label="E-mail"
+                        solo
+                        hide-details
+                        flat
+                        color="#666"
+                        v-model="myForm.f_email"
+                        ref="fEmail"
+                    ></v-text-field>
+                    <p>{{ errors[0] }}</p>
+                </ValidationProvider>
                 <v-textarea
                     solo
-                    name="input-7-4"
+                    name="Your Message"
                     label="Your Message"
                     flat
                     hide-details
                     color="#666"
                     v-model="myForm.f_message"
                 ></v-textarea>
-                <v-btn depressed rounded class="btn-action-contact" @click="sendMyForm()">Send</v-btn>
-            </v-form>
+                <v-btn depressed rounded class="btn-action-contact" @click="onSubmit()" :disabled="invalid || sendAPI"
+                    >Send</v-btn
+                >
+            </ValidationObserver>
+            <v-dialog v-model="dialog" max-width="400">
+                <v-card>
+                    <v-card-title class="headline">Alert</v-card-title>
+                    <v-card-text class="text-dialog" v-bind:class="{ 'text-success': classSuccess }">
+                        {{ msg }}
+                    </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn text @click="dialog = false">OK</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
         </div>
     </v-container>
 </template>
 <script>
 import Vue from 'vue';
 import { extend } from 'vee-validate';
-// import { required, email } from 'vee-validate/dist/rules';
+import { email } from 'vee-validate/dist/rules';
+
 extend('required', {
     validate: value => !!value,
-    message() {
-        return 'This field is required';
-    }
+    message: 'This field is required'
 });
-/* extend('required', {
-    params: ['max'], // list of parameter names
-    validate(value, { max }) {
-        return Number(value) > max;
-    },
-    message() {
-        return 'Max 1000';
-    }
-}); */
+extend('max100', {
+    validate: value => value.length < 100,
+    message: 'This field is Max 100'
+});
+extend('email', email);
 
 export default {
     name: 'Contact',
@@ -75,13 +78,34 @@ export default {
             f_fullname: '',
             f_email: '',
             f_message: ''
-        }
+        },
+        sendAPI: false,
+        dialog: false,
+        classSuccess: false,
+        msg: ''
     }),
     mounted() {
         // this.$validator.localize('en', this.dictionary);
     },
     methods: {
-        sendMyForm() {
+        async onSubmit() {
+            const isValid = await this.$refs.observer.validate();
+            const isValidFullName = await this.$refs.vEmail.validate();
+            const isValidEmail = await this.$refs.vEmail.validate();
+
+            // console.log(isValid, isValid_vEmail);
+
+            if (!this.myForm.f_fullname || !isValidFullName.valid) {
+                this.$refs.fFullName.focus();
+                return;
+            }
+            if (!this.myForm.f_email || !isValidEmail.valid) {
+                this.$refs.fEmail.focus();
+                return;
+            }
+            if (!isValid) return;
+
+            // return this.$refs.fEmail.validate();
             // https://script.google.com/macros/s/AKfycbxHVv__ThbYEMzB-P5wT5EvMtHccnxPBbKKnSual7LG7trbk1U/exec
             // https://docs.google.com/spreadsheets/d/1czstH1DtT8fgtvfYy7_uep-zCemPyEM8erLgxZtwR4s/edit#gid=0
             const bodyFormData = new FormData();
@@ -89,6 +113,7 @@ export default {
             bodyFormData.set('name', this.myForm.f_fullname);
             bodyFormData.set('email', this.myForm.f_email);
             bodyFormData.set('msg', this.myForm.f_message);
+            this.sendAPI = true;
 
             Vue.axios
                 .post(
@@ -96,7 +121,19 @@ export default {
                     bodyFormData
                 )
                 .then(res => {
-                    console.log(res);
+                    this.classSuccess = res.data.result === 'success';
+                    this.msg = res.data.result;
+                    this.dialog = true;
+                    this.sendAPI = false;
+
+                    this.myForm = {
+                        f_fullname: '',
+                        f_email: '',
+                        f_message: ''
+                    };
+                    requestAnimationFrame(() => {
+                        this.$refs.observer.reset();
+                    });
                 })
                 .catch(() => {
                     // console.log(e);
@@ -125,6 +162,7 @@ export default {
 <style lang="scss">
 .section-contact {
     background: url(../../../assets/images/bg-contact.png) no-repeat left top;
+    background-size: auto 100%;
     padding: 36px 0;
 
     .text-1 {
@@ -155,6 +193,14 @@ export default {
         height: 60px;
         margin-top: 20px;
     }
+}
+.text-dialog {
+    text-align: center;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.theme--light.v-card > .v-card__text.text-success {
+    color: #4caf50;
 }
 
 @media screen and (max-width: 960px) {

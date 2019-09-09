@@ -53,3 +53,25 @@ export default {
     data: () => ({})
 };
 </script>
+<style lang="scss">
+.section-2,
+.section-3 {
+    @media only screen and (min-width: 960px) {
+        margin-top: -50px;
+    }
+    @media only screen and (min-width: 1200px) {
+        margin-top: -100px;
+    }
+    @media only screen and (min-width: 1900px) {
+        margin-top: -200px;
+    }
+}
+.section-4 {
+    @media only screen and (min-width: 960px) {
+        margin-top: -10px;
+    }
+    @media only screen and (min-width: 1200px) {
+        margin-top: -200px;
+    }
+}
+</style>

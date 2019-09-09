@@ -184,6 +184,10 @@ export default {
         border: none;
     }
 
+    .carousel-3d-slide:not(.current) {
+        cursor: pointer;
+    }
+
     .arrow {
         cursor: pointer;
         img {
@@ -210,26 +214,34 @@ export default {
 .title-2 {
     text-align: center;
     color: #f9556d;
-    width: 280px;
+    /* width: 280px; */
+    width: 100%;
+    max-width: 280px;
     margin: auto;
     font-size: 16px;
 
     @media only screen and (min-width: 350px) {
-        width: 350px;
+        width: 100%;
+        max-width: 350px;
     }
 
     @media only screen and (min-width: $small_screen) {
-        width: 700px;
+        width: 100%;
+        max-width: 700px;
         font-size: 20px;
         margin-bottom: 2rem;
     }
 
     @media only screen and (min-width: $medium_screen) {
-        width: 800px;
+        /* width: 800px; */
+        width: 100%;
+        max-width: 800px;
     }
 
     @media only screen and (min-width: $large_screen) {
-        width: 1000px;
+        /* width: 1000px; */
+        width: 100%;
+        max-width: 1000px;
         font-size: 26px;
     }
 }
