@@ -8,10 +8,16 @@
                     </v-flex>
                     <v-flex xs12 sm8 xl7>
                         <div class="logo">
-                            <img src="@/assets/images/clear-keep-icon.png" alt />
+                            <a href="http://www.clearkeep.io" target="blank">
+                                <img src="@/assets/images/clear-keep-icon.png" alt />
+                            </a>
                             <div class="text-1">
-                                <div class="t1">Clear Keep</div>
-                                <div class="t2">www.clearkeep.io</div>
+                                <div class="t1">
+                                    <a href="http://www.clearkeep.io" target="blank">Clear Keep</a>
+                                </div>
+                                <div class="t2">
+                                    <a href="http://www.clearkeep.io" target="blank">www.clearkeep.io</a>
+                                </div>
                             </div>
                         </div>
                         <div class="text-2">
@@ -112,14 +118,27 @@ export default {
             margin-bottom: 20px;
 
             .t1 {
-                font-weight: bold;
                 line-height: 20px;
                 padding-top: 3px;
+                a {
+                    font-weight: bold;
+                    color: #f9556d;
+                }
+                a:hover {
+                    color: #06b6cf;
+                }
             }
 
             .t2 {
-                font-size: 14px;
                 line-height: 14px;
+                a {
+                    font-size: 14px;
+                    color: #f9556d;
+                }
+                a:hover {
+                    color: #06b6cf;
+                    font-style: italic;
+                }
             }
         }
 

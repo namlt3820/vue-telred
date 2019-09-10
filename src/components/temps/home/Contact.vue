@@ -36,6 +36,7 @@
                     hide-details
                     color="#666"
                     v-model="myForm.f_message"
+                    ref="fMessage"
                 ></v-textarea>
                 <v-btn depressed rounded class="btn-action-contact" @click="onSubmit()" :disabled="invalid || sendAPI"
                     >Send</v-btn
@@ -90,17 +91,23 @@ export default {
     methods: {
         async onSubmit() {
             const isValid = await this.$refs.observer.validate();
-            const isValidFullName = await this.$refs.vEmail.validate();
+            // const isValidFullName = await this.$refs.vEmail.validate();
             const isValidEmail = await this.$refs.vEmail.validate();
+            const isValidMesage = await this.$refs.fMessage.validate();
+            // console.log(isValidEmail);
 
             // console.log(isValid, isValid_vEmail);
 
-            if (!this.myForm.f_fullname || !isValidFullName.valid) {
+            /* if (!this.myForm.f_fullname || !isValidFullName.valid) {
                 this.$refs.fFullName.focus();
                 return;
-            }
+            } */
             if (!this.myForm.f_email || !isValidEmail.valid) {
                 this.$refs.fEmail.focus();
+                return;
+            }
+            if (!this.myForm.f_message || !isValidMesage) {
+                this.$refs.fMessage.focus();
                 return;
             }
             if (!isValid) return;
@@ -122,7 +129,9 @@ export default {
                 )
                 .then(res => {
                     this.classSuccess = res.data.result === 'success';
-                    this.msg = res.data.result;
+                    this.msg = this.classSuccess
+                        ? 'Thanks for contacting us! We will get in touch with you shortly.'
+                        : res.data.result;
                     this.dialog = true;
                     this.sendAPI = false;
 

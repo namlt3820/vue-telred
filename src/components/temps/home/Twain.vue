@@ -4,10 +4,16 @@
             <v-flex xs12 pa-0>
                 <div class="fix-width">
                     <div class="logo">
-                        <img src="@/assets/images/logo-twain.png" alt />
+                        <a href="http://www.twain.ai" target="blank">
+                            <img src="@/assets/images/logo-twain.png" alt />
+                        </a>
                         <div class="text-1">
-                            <div class="t1">TWAIN</div>
-                            <div class="t2">www.twain.ai</div>
+                            <div class="t1">
+                                <a href="http://www.twain.ai" target="blank">TWAIN</a>
+                            </div>
+                            <div class="t2">
+                                <a href="http://www.twain.ai" target="blank">www.twain.ai</a>
+                            </div>
                         </div>
                     </div>
                     <div class="text-2">Build production-quality AI</div>
@@ -54,13 +60,26 @@ export default {
                 padding-right: 13px;
             }
             .t1 {
-                font-weight: bold;
                 line-height: 20px;
                 padding-top: 3px;
+                a {
+                    color: #f9556d;
+                    font-weight: bold;
+                }
+                a:hover {
+                    color: #c93878;
+                }
             }
             .t2 {
-                font-size: 14px;
                 line-height: 14px;
+                a {
+                    font-size: 14px;
+                    color: #f9556d;
+                }
+                a:hover {
+                    color: #c93878;
+                    font-style: italic;
+                }
             }
         }
         .text-2 {

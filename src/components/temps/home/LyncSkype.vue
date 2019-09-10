@@ -8,10 +8,16 @@
                 <v-flex xs12 pa-md-0 pt-md-10 pa-4 pb->
                     <div class="fix-width">
                         <div class="logo">
-                            <img src="@/assets/images/lync-skype-icon.png" alt />
+                            <a target="blank" href="http://www.tel.red">
+                                <img src="@/assets/images/lync-skype-icon.png" alt />
+                            </a>
                             <div class="text-1">
-                                <div class="t1">Lync/Skype for business</div>
-                                <div class="t2">www.tel.red</div>
+                                <div class="t1">
+                                    <a target="blank" href="http://www.tel.red">Lync/Skype for business</a>
+                                </div>
+                                <div class="t2">
+                                    <a target="blank" href="http://www.tel.red">www.tel.red</a>
+                                </div>
                             </div>
                         </div>
                         <div class="text-2">
@@ -76,14 +82,27 @@ export default {
         }
 
         .t1 {
-            font-weight: bold;
             line-height: 20px;
             padding-top: 3px;
+            a {
+                font-weight: bold;
+                color: #f9556d;
+            }
+            a:hover {
+                color: #0072bc;
+            }
         }
 
         .t2 {
-            font-size: 14px;
             line-height: 14px;
+            a {
+                color: #f9556d;
+                font-size: 14px;
+            }
+            a:hover {
+                font-style: italic;
+                color: #0072bc;
+            }
         }
     }
 

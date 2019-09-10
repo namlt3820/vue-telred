@@ -146,7 +146,7 @@ export default {
                 )
                 .then(res => {
                     this.classSuccess = res.data.result === 'success';
-                    this.msg = res.data.result;
+                    this.msg = this.classSuccess ? "We'll send you the latest news & promotion" : res.data.result;
                     this.dialog = true;
                     this.sendAPI = false;
 
