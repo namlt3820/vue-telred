@@ -46,6 +46,7 @@
                                     rounded
                                     hide-details
                                     color="#F8546C"
+                                    v-on:keyup.enter="onSubmit()"
                                 ></v-text-field>
                             </ValidationProvider>
                             <v-btn
@@ -68,13 +69,13 @@
         <div class="copyright">
             <div class="fix-width">Copyright ⓒ 2012-2019 TEL.RED, LLC. All rights reserved.</div>
         </div>
-        <div id="back-to-top" @click="$vuetify.goTo('#scroll-header')" v-scroll="handleScroll">
+        <div id="back-to-top" @click="$vuetify.goTo('#scroll-header')">
             <img src="@/assets/images/back-to-top.svg" />
         </div>
         <v-dialog v-model="dialog" max-width="400">
             <v-card>
-                <v-card-title class="headline">Alert</v-card-title>
-                <v-card-text class="text-dialog" v-bind:class="{ 'text-success': classSuccess }">{{ msg }}</v-card-text>
+                <v-card-title class="headline"></v-card-title>
+                <v-card-text class="text-dialog">{{ msg }}</v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn text @click="dialog = false">OK</v-btn>
@@ -96,7 +97,7 @@ export default {
         classSuccess: false,
         msg: ''
     }),
-    directives: {
+    /* directives: {
         scroll(el, binding) {
             const funcCheck = function(evt) {
                 if (binding.value(evt, el)) {
@@ -104,8 +105,9 @@ export default {
                 }
             };
             window.addEventListener('scroll', funcCheck);
+            // v-scroll="handleScroll"
         }
-    },
+    }, */
     created() {
         // console.log(screen.width);
     },
@@ -239,7 +241,7 @@ export default {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 0;
+    opacity: 1;
     z-index: 99;
 
     img {

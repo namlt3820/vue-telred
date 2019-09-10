@@ -3,7 +3,13 @@
         <div class="fix-width">
             <div class="text-1">Get in Touch with Us</div>
             <div class="text-2">We'd love to hear from you. Drop us a note and we'll get back to you ASAP.</div>
-            <ValidationObserver tag="form" ref="observer" v-slot="{ invalid }" class="form-contact">
+            <ValidationObserver
+                tag="form"
+                ref="observer"
+                v-slot="{ invalid }"
+                class="form-contact"
+                v-on:keyup.enter="onSubmit()"
+            >
                 <ValidationProvider name="Fullname" rules="required|max100" ref="vFullName" v-slot="{ errors }">
                     <v-text-field
                         label="Name"
@@ -44,10 +50,8 @@
             </ValidationObserver>
             <v-dialog v-model="dialog" max-width="400">
                 <v-card>
-                    <v-card-title class="headline">Alert</v-card-title>
-                    <v-card-text class="text-dialog" v-bind:class="{ 'text-success': classSuccess }">
-                        {{ msg }}
-                    </v-card-text>
+                    <v-card-title class="headline"></v-card-title>
+                    <v-card-text class="text-dialog">{{ msg }}</v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn text @click="dialog = false">OK</v-btn>
@@ -203,10 +207,11 @@ export default {
         margin-top: 20px;
     }
 }
-.text-dialog {
+.theme--light.v-card > .v-card__text.text-dialog {
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     text-transform: capitalize;
+    color: #333;
 }
 .theme--light.v-card > .v-card__text.text-success {
     color: #4caf50;
