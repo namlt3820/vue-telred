@@ -219,10 +219,10 @@ export default {
 }
 .item-footer .list-contact .address {
     background: url(../../assets/images/ic-location.svg) no-repeat left top 3px;
-    background-size: 14px auto;
+    background-size: 12px auto;
 }
 .item-footer .list-contact .email {
-    background: url(../../assets/images/ic-mail.svg) no-repeat left top 3px;
+    background: url(../../assets/images/ic-mail.svg) no-repeat left top 7px;
     background-size: 14px auto;
 }
 .item-footer .list-contact .phone {
@@ -295,7 +295,7 @@ export default {
     }
     .item-footer .list-contact .address {
         background: url(../../assets/images/ic-location.svg) no-repeat left top 5px;
-        background-size: 14px auto;
+        background-size: 12px auto;
     }
     .item-footer .list-contact .email {
         background: url(../../assets/images/ic-mail.svg) no-repeat left top 8px;

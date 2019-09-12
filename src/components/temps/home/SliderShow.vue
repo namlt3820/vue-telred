@@ -33,7 +33,7 @@
                             :width="slideWidth"
                             :height="slideHeight"
                             ref="carousel"
-                            startIndex="0"
+                            :startIndex="slideIndex"
                             @before-slide-change="onBeforeSlideChange"
                             :autoplay="$vuetify.breakpoint.mdAndDown"
                             :autoplayTimeout="$vuetify.breakpoint.xsOnly ? 3000 : 2000"
@@ -79,7 +79,7 @@ import { Carousel3d, Slide } from 'vue-carousel-3d';
 export default {
     data() {
         return {
-            slideIndex: 1,
+            slideIndex: 0,
             leftActive: false,
             rightActive: false
         };
