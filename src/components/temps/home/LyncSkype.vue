@@ -8,15 +8,15 @@
                 <v-flex xs12 pa-md-0 pt-md-10 pa-4 pb->
                     <div class="fix-width">
                         <div class="logo">
-                            <a target="blank" href="http://www.tel.red">
+                            <a target="blank" href="http://www.tel.red/linux.php">
                                 <img src="@/assets/images/lync-skype-icon.png" alt />
                             </a>
                             <div class="text-1">
                                 <div class="t1">
-                                    <a target="blank" href="http://www.tel.red">Lync/Skype for business</a>
+                                    <a target="blank" href="http://www.tel.red/linux.php">Lync/Skype for business</a>
                                 </div>
                                 <div class="t2">
-                                    <a target="blank" href="http://www.tel.red">www.tel.red</a>
+                                    <a target="blank" href="http://www.tel.red/linux.php">www.tel.red</a>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
                             class="btn-read-more"
                             color="#F9556D"
                             target="blank"
-                            href="http://www.tel.red"
+                            href="http://www.tel.red/linux.php"
                             >Read more</v-btn
                         >
                         <!-- <div class="text-3" v-if="$vuetify.breakpoint.lgAndUp">
