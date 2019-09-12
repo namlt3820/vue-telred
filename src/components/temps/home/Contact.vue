@@ -48,10 +48,10 @@
                     >Send</v-btn
                 >
             </ValidationObserver>
-            <v-dialog v-model="dialog" max-width="400">
+            <v-dialog v-model="dialog" max-width="500">
                 <v-card>
                     <v-card-title class="headline"></v-card-title>
-                    <v-card-text class="text-dialog">{{ msg }}</v-card-text>
+                    <v-card-text class="text-dialog" v-html="msg"></v-card-text>
                     <v-card-actions>
                         <v-spacer></v-spacer>
                         <v-btn text @click="dialog = false">OK</v-btn>
@@ -134,7 +134,7 @@ export default {
                 .then(res => {
                     this.classSuccess = res.data.result === 'success';
                     this.msg = this.classSuccess
-                        ? 'Thanks for contacting us! We will get in touch with you shortly.'
+                        ? 'Thanks for contacting us! <br />We will get in touch with you shortly.'
                         : res.data.result;
                     this.dialog = true;
                     this.sendAPI = false;
@@ -210,7 +210,7 @@ export default {
 .theme--light.v-card > .v-card__text.text-dialog {
     text-align: center;
     font-size: 16px;
-    text-transform: capitalize;
+    font-weight: bold;
     color: #333;
 }
 .theme--light.v-card > .v-card__text.text-success {

@@ -72,7 +72,7 @@
         <div id="back-to-top" @click="$vuetify.goTo('#scroll-header')">
             <img src="@/assets/images/back-to-top.svg" />
         </div>
-        <v-dialog v-model="dialog" max-width="400">
+        <v-dialog v-model="dialog" max-width="500">
             <v-card>
                 <v-card-title class="headline"></v-card-title>
                 <v-card-text class="text-dialog">{{ msg }}</v-card-text>
